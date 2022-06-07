@@ -1,3 +1,4 @@
+import '../lib/fontfaces.css'
 import Footer from '../components/Footer'
 import GlobalStyles from '../components/GlobalStyles'
 import Header from '../components/Header'
