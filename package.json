@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "savesheets": "node ./scripts/savesheets.js"
   },
   "dependencies": {
     "googleapis": "^100.0.0",
@@ -16,7 +17,10 @@
     "styled-components": "^5.3.5"
   },
   "devDependencies": {
+    "dotenv": "^16.0.1",
     "eslint": "8.13.0",
-    "eslint-config-next": "12.1.5"
+    "eslint-config-next": "12.1.5",
+    "fs-extra": "^10.1.0",
+    "rimraf": "^3.0.2"
   }
 }
