@@ -3,20 +3,15 @@ import Footer from '../components/Footer'
 import GlobalStyles from '../components/GlobalStyles'
 import Header from '../components/Header'
 import Main from '../components/Main'
+import getTheme from '../lib/getTheme'
 
 function MyApp({ Component, pageProps = {} }) {
-  // const { appData = {} } = pageProps
-  // const { globals = {}, restaurants = {} } = appData
-  // const { hoursRange, hoursTitle } = globals
-  // const restaurant = restaurants.fulda
+  const { restaurant = {} } = pageProps
+  const theme = getTheme(restaurant)
   return (
     <>
-      <GlobalStyles />
-      {/* <Header
-        hoursRange={hoursRange}
-        hoursTitle={hoursTitle}
-        restaurant={restaurant}
-      /> */}
+      <GlobalStyles {...theme} />
+      <Header />
       <Main>
         <Component {...pageProps} />
       </Main>

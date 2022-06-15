@@ -1,26 +1,25 @@
-import JsonLog from '../components/JsonLog'
-import { getAppData, getMenuData } from '../lib/api'
+import { getSheetData } from '../lib/api'
+import revalidate from '../lib/revalidate'
+import RestaurantSelect from '../components/RestaurantSelect'
 
-export default function Index({ appData, menuData }) {
-  // console.log('appData', appData)
-  // console.log('menuData', menuData)
+export default function Index({
+  restaurants
+}) {
   return (
-    <div>
-      <JsonLog data={menuData} label='menuData' />
-      <JsonLog data={appData} label='appData' />
-    </div>
+    <>
+      <RestaurantSelect restaurants={restaurants} />
+    </>
   )
 }
 
 export async function getStaticProps({ preview = false, locale, defaultLocale }) {
-  const appData = await getAppData(locale)
-  const menuData = await getMenuData(locale)
+  const data = await getSheetData(['restaurants'])
+  const { restaurants = [] } = data
   return {
     props: {
-      appData,
-      menuData,
+      restaurants,
       preview,
     },
-    revalidate: 300, // every 5 minutes
+    revalidate
   }
 }

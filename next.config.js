@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   i18n: {
     locales: ['en', 'de'],
-    defaultLocale: 'en',
+    defaultLocale: 'de',
   },
   compiler: {
     // Enables the styled-components SWC transform

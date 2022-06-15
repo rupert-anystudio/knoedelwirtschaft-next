@@ -5,10 +5,9 @@ import fontStyles from '../lib/fontStyles'
 
 const GlobalStyles = createGlobalStyle`
   :root {
-    --primary-color: #76FA7B;
-    --text-color: #000000;
-    --fallback-color: #b7b7b7;
-    --bg-color: #ffffff;
+    --txt: ${props => props.txt};
+    --bg: ${props => props.bg};
+    --btn-shadow: 0px 0px 8px 0 rgba(0,0,0,0.2);
   }
   *, *:before, *:after {
     box-sizing: border-box;
@@ -46,8 +45,8 @@ const GlobalStyles = createGlobalStyle`
     margin: 0 auto;
   }
   html, body, #__next {
-    background: var(--bg-color);
-    color: var(--text-color);
+    background: var(--bg);
+    color: var(--txt);
   }
 `
 
