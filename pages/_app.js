@@ -46,7 +46,7 @@ function MyApp({ Component, pageProps = {} }) {
       <Header />
       <Main>
         <Component {...pageProps} />
-        <JsonLog data={value} />
+        {/* <JsonLog data={value} /> */}
       </Main>
       <Footer />
     </AppContextProvider>
