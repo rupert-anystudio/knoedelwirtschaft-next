@@ -19,7 +19,7 @@ const Restaurant = styled.a`
   text-decoration: none;
 `
 
-const RestaurantSelect = ({ restaurants }) => {
+const RestaurantSelect = ({ restaurants = [] }) => {
   return (
     <Wrap>
       {restaurants.map(({

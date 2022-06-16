@@ -2,23 +2,19 @@ import { getSheetData } from '../lib/api'
 import revalidate from '../lib/revalidate'
 import RestaurantSelect from '../components/RestaurantSelect'
 
-export default function Index({
-  restaurants
-}) {
+export default function Index({ data }) {
   return (
     <>
-      <RestaurantSelect restaurants={restaurants} />
+      <RestaurantSelect restaurants={data.restaurants} />
     </>
   )
 }
 
-export async function getStaticProps({ preview = false, locale, defaultLocale }) {
-  const data = await getSheetData(['restaurants'])
-  const { restaurants = [] } = data
+export async function getStaticProps({ preview = false }) {
+  const data = await getSheetData(['restaurants', 'globals'])
   return {
     props: {
-      isLanding: true,
-      restaurants,
+      data,
       preview,
     },
     revalidate

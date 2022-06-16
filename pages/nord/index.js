@@ -1,17 +1,16 @@
-import RestaurantHeader from '../../components/RestaurantHeader'
-import { getSheetData, getRestaurantData } from '../../lib/api'
+import { getSheetData } from '../../lib/api'
 import revalidate from '../../lib/revalidate'
 
 export default function Nord() {
   return null
 }
 
-export async function getStaticProps({ preview = false, locale, defaultLocale }) {
-  const data = await getSheetData(['restaurants'])
-  const restaurant = getRestaurantData(data, 'nord')
+export async function getStaticProps({ preview = false }) {
+  const data = await getSheetData(['restaurants', 'globals', 'additives', 'labels', 'categories_food', 'categories_drinks'])
   return {
     props: {
-      restaurant,
+      data,
+      restaurantSlug: 'nord',
       preview,
     },
     revalidate

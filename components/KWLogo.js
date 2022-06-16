@@ -6,7 +6,7 @@ const Wrap = styled.div`
   text-decoration: none;
   text-align: center;
   text-rendering: optimizeLegibility;
-  font-size: clamp(4rem, 28vw, 14rem);
+  font-size: clamp(8rem, 26vw, 24rem);
   margin: 2rem;
 `
 

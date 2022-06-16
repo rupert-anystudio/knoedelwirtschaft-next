@@ -1,16 +1,16 @@
-import { getSheetData, getRestaurantData } from '../../lib/api'
+import { getSheetData } from '../../lib/api'
 import revalidate from '../../lib/revalidate'
 
 export default function ImprintSued() {
   return null
 }
 
-export async function getStaticProps({ preview = false, locale, defaultLocale }) {
-  const data = await getSheetData(['restaurants'])
-  const restaurant = getRestaurantData(data, 'sued')
+export async function getStaticProps({ preview = false }) {
+  const data = await getSheetData(['restaurants', 'globals'])
   return {
     props: {
-      restaurant,
+      data,
+      restaurantSlug: 'sued',
       preview,
     },
     revalidate

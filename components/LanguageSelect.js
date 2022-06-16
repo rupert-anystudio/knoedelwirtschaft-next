@@ -4,7 +4,7 @@ import useLanguageSelect from './useLanguageSelect'
 
 const Wrap = styled.div`
   display: flex;
-  padding: 2rem;
+  padding: 4rem;
   a {
     margin: 0 .2rem;
     text-decoration: none;
