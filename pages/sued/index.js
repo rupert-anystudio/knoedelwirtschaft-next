@@ -1,13 +1,8 @@
-import RestaurantHeader from '../../components/RestaurantHeader'
 import { getRestaurantData, getSheetData } from '../../lib/api'
 import revalidate from '../../lib/revalidate'
 
-export default function Sued({ restaurant }) {
-  return (
-    <>
-      <RestaurantHeader {...restaurant} />
-    </>
-  )
+export default function Sued() {
+  return null
 }
 
 export async function getStaticProps({ preview = false, locale, defaultLocale }) {

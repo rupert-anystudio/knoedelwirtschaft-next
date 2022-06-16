@@ -1,12 +1,8 @@
 import { getSheetData, getRestaurantData } from '../../lib/api'
 import revalidate from '../../lib/revalidate'
 
-export default function ImprintNord({ restaurant }) {
-  return (
-    <>
-      Imprint Nord
-    </>
-  )
+export default function ImprintNord() {
+  return null
 }
 
 export async function getStaticProps({ preview = false, locale, defaultLocale }) {

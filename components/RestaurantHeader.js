@@ -1,29 +1,33 @@
 import Link from 'next/link'
 import styled from 'styled-components'
+import KWLogo from './KWLogo'
 
 const Wrap = styled.div`
   flex: 0 0 auto;
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
-  background: var(--bg);
-  padding: 2rem;
   a {
-    color: var(--txt)
+    text-decoration: none;
+    color: inherit;
   }
 `
 
-const RestaurantHeader = ({ name, city_area }) => {
+const RestaurantHeader = ({
+  name,
+  city_area,
+}) => {
   return (
     <Wrap>
-      <Link href='/' passHref>
+      <Link
+        href='/'
+        passHref
+      >
         <a>
-          <div>
-            <span>Knödel</span>
-            <span>wirtschaft</span>
-          </div>
-          <strong>{name}</strong>
-          <i>{city_area}</i>
+          <KWLogo
+            name={name}
+            area={city_area}
+          />
         </a>
       </Link>
     </Wrap>

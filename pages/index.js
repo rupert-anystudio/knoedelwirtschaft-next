@@ -17,6 +17,7 @@ export async function getStaticProps({ preview = false, locale, defaultLocale })
   const { restaurants = [] } = data
   return {
     props: {
+      isLanding: true,
       restaurants,
       preview,
     },

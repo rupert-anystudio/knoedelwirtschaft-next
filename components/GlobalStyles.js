@@ -33,6 +33,7 @@ const GlobalStyles = createGlobalStyle`
     ${fontStyles.root}
     ${fontSizes.root}
     text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
     overflow: scroll;
     overflow-x: hidden;
   }
