@@ -6,7 +6,10 @@ export default function ImprintNord() {
 }
 
 export async function getStaticProps({ preview = false }) {
-  const data = await getSheetData(['restaurants', 'globals'])
+  const data = await getSheetData([
+    'restaurants',
+    'globals',
+  ])
   return {
     props: {
       data,
