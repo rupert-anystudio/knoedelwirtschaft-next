@@ -8,7 +8,7 @@ const GlobalStyles = createGlobalStyle`
     --ff-title: 'Grobe Deutschmeister';
     --ff-body: 'Suisse Intl';
     --offset: 0.1em;
-    --fs-root: clamp(1.3rem,2.8vw,1.6rem);
+    --fs-root: clamp(1.4rem,2.8vw,1.6rem);
     --fs-logo: clamp(2.6rem,8vw,5.8rem);
     --fs-title: clamp(2.6rem,8vw,5.8rem);
     --lh-root: 1.45;
@@ -29,6 +29,7 @@ const GlobalStyles = createGlobalStyle`
     --bg: white;
     --txt: black;
     --ff-title-offset: -1;
+    --ff-name-offset: 0;
     --ff-body-offset: 0;
     &.inverted {
       --bg: black;
@@ -42,6 +43,7 @@ const GlobalStyles = createGlobalStyle`
     --bg: #00FA00;
     --txt: black;
     --ff-title-offset: -1;
+    --ff-name-offset: 1;
     --ff-body-offset: 0;
     &.inverted {
       --bg: black;
@@ -55,6 +57,7 @@ const GlobalStyles = createGlobalStyle`
     --bg: white;
     --txt: #6140F5;
     --ff-title-offset: 0;
+    --ff-name-offset: 0;
     --ff-body-offset: -1;
     &.inverted {
       --txt: #6140F5;

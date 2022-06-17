@@ -9,19 +9,21 @@ export const LogoMain = styled.div`
   text-align: center;
   color: var(--txt);
   background: var(--bg);
-  margin-bottom: 0.6em;
+  margin-bottom: 0.7em;
 `
 
 export const LogoRestaurant = styled.div`
-  font-size: clamp(calc(var(--fs-logo) * 4.2), calc(var(--fs-logo) * 4.8), 32vw);
+  /* font-size: clamp(calc(var(--fs-logo) * 3), calc(var(--fs-logo) * 4), 32vw); */
+  font-size: calc(var(--fs-logo) * 3.8);
   line-height: 1;
   text-transform: uppercase;
   white-space: pre-wrap;
   font-family: var(--ff-name);
-  /* transform: translate3d(0, calc(var(--ff-body-offset) * var(--offset)), 0); */
+  transform: translate3d(0, calc(var(--ff-name-offset) * -0.08em), 0);
+  letter-spacing: -0.01em;
   text-align: center;
   /* margin-top: 0.25em; */
-  margin-bottom: -0.1em;
+  margin-bottom: 0em;
   color: var(--txt);
   background: var(--bg);
   /* .nord & {
