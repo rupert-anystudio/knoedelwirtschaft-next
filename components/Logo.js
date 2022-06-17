@@ -5,7 +5,7 @@ export const LogoMain = styled.div`
   line-height: 1;
   white-space: pre-wrap;
   font-family: var(--ff-title);
-  transform: translate3d(0, calc(var(--ff-title-offset) * var(--offset)), 0);
+  /* transform: translate3d(0, calc(var(--ff-title-offset) * var(--offset)), 0); */
   text-align: center;
   color: var(--txt);
   background: var(--bg);
@@ -13,12 +13,12 @@ export const LogoMain = styled.div`
 `
 
 export const LogoRestaurant = styled.div`
-  font-size: clamp(calc(var(--fs-logo) * 4.2), calc(var(--fs-logo) * 5.6), 37vw);
+  font-size: clamp(calc(var(--fs-logo) * 4.2), calc(var(--fs-logo) * 4.8), 32vw);
   line-height: 1;
   text-transform: uppercase;
   white-space: pre-wrap;
-  font-family: var(--ff-body);
-  transform: translate3d(0, calc(var(--ff-body-offset) * var(--offset)), 0);
+  font-family: var(--ff-name);
+  /* transform: translate3d(0, calc(var(--ff-body-offset) * var(--offset)), 0); */
   text-align: center;
   /* margin-top: 0.25em; */
   margin-bottom: -0.1em;
@@ -40,4 +40,5 @@ export const LogoArea = styled.div`
   background: var(--bg);
   font-family: var(--ff-body);
   transform: translateY(calc(var(--ff-body-offset) * var(--offset)));
+  white-space: pre-wrap;
 `

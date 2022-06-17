@@ -11,7 +11,7 @@ const Restaurants = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   ${media.landingTwoCol} {
-    grid-template-columns: 1fr 1fr;
+    /* grid-template-columns: 1fr 1fr; */
   }
   > div {
     flex: 1 0 auto;
@@ -72,7 +72,7 @@ const PageLanding = () => {
             )
           })}
         </Restaurants>
-        <Restaurants>
+        {/* <Restaurants>
           {restaurants.map(({
             id,
             name,
@@ -121,7 +121,7 @@ const PageLanding = () => {
               </div>
             )
           })}
-        </Restaurants>
+        </Restaurants> */}
       </Main>
     </>
   )

@@ -23,6 +23,7 @@ const GlobalStyles = createGlobalStyle`
     }
   }
   .base {
+    --ff-name: 'Suisse Intl';
     --ff-title: 'Grobe Deutschmeister';
     --ff-body: 'Suisse Intl';
     --bg: white;
@@ -35,6 +36,7 @@ const GlobalStyles = createGlobalStyle`
     }
   }
   .sued {
+    --ff-name: 'Grobe Deutschmeister';
     --ff-title: 'Grobe Deutschmeister';
     --ff-body: 'Suisse Intl';
     --bg: #00FA00;
@@ -47,15 +49,17 @@ const GlobalStyles = createGlobalStyle`
     }
   }
   .nord {
-    --ff-title: 'Suisse Intl';
-    --ff-body: 'Grobe Deutschmeister';
+    --ff-name: 'Suisse Intl';
+    --ff-title: 'Grobe Deutschmeister';
+    --ff-body: 'Suisse Intl';
     --bg: white;
     --txt: #6140F5;
     --ff-title-offset: 0;
     --ff-body-offset: -1;
     &.inverted {
-      --bg: #6140F5;
+      --txt: #6140F5;
       --txt: white;
+      --bg: black;
     }
   }
   *, *:before, *:after {

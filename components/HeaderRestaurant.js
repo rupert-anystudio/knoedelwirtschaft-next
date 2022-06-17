@@ -130,6 +130,7 @@ const StickyArea = styled.span`
     top: var(--gutter);
     width: auto;
     margin-bottom: -99999px;
+    white-space: nowrap;
   }
 `
 
