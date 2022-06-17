@@ -1,13 +1,66 @@
 import { createGlobalStyle } from 'styled-components'
-
-import fontSizes from '../lib/fontSizes'
-import fontStyles from '../lib/fontStyles'
+import media from '../lib/media'
 
 const GlobalStyles = createGlobalStyle`
   :root {
-    --txt: ${props => props.txt};
-    --bg: ${props => props.bg};
-    --btn-shadow: 0px 0px 8px 0 rgba(0,0,0,0.2);
+    --btn-shadow: 0px 0px 5px 1px rgba(0,0,0,0.6);
+    --btn-shadow-dim: 0px 0px 5px 1px rgba(0,0,0,0.3);
+    --ff-title: 'Grobe Deutschmeister';
+    --ff-body: 'Suisse Intl';
+    --offset: 0.1em;
+    --fs-root: clamp(1.3rem,2.8vw,1.6rem);
+    --fs-logo: clamp(2.6rem,8vw,5.8rem);
+    --fs-title: clamp(2.6rem,8vw,5.8rem);
+    --lh-root: 1.45;
+    --gutter: 2rem;
+    --h-header: 0px;
+    --maxw-app: 86rem;
+    ${media.leftRight} {
+      --h-header: 16rem;
+    }
+    ${media.large} {
+      --maxw-app: 144rem;
+    }
+  }
+  .base {
+    --ff-name: 'Suisse Intl';
+    --ff-title: 'Grobe Deutschmeister';
+    --ff-body: 'Suisse Intl';
+    --bg: white;
+    --txt: black;
+    --ff-title-offset: -1;
+    --ff-body-offset: 0;
+    &.inverted {
+      --bg: black;
+      --txt: white;
+    }
+  }
+  .sued {
+    --ff-name: 'Grobe Deutschmeister';
+    --ff-title: 'Grobe Deutschmeister';
+    --ff-body: 'Suisse Intl';
+    --bg: #00FA00;
+    --txt: black;
+    --ff-title-offset: -1;
+    --ff-body-offset: 0;
+    &.inverted {
+      --bg: black;
+      --txt: white;
+    }
+  }
+  .nord {
+    --ff-name: 'Suisse Intl';
+    --ff-title: 'Grobe Deutschmeister';
+    --ff-body: 'Suisse Intl';
+    --bg: white;
+    --txt: #6140F5;
+    --ff-title-offset: 0;
+    --ff-body-offset: -1;
+    &.inverted {
+      --txt: #6140F5;
+      --txt: white;
+      --bg: black;
+    }
   }
   *, *:before, *:after {
     box-sizing: border-box;
@@ -30,24 +83,36 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     display: flex;
     flex-direction: column;
-    ${fontStyles.root}
-    ${fontSizes.root}
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     overflow: scroll;
     overflow-x: hidden;
+    font-family: var(--ff-body);
+    font-size: var(--fs-root);
+    line-height: var(--lh-root);
   }
   #__next {
     width: 100%;
-    max-width: 100%;
     flex: 1;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     margin: 0 auto;
   }
-  html, body, #__next {
-    background: var(--bg);
-    color: var(--txt);
+  h1, h2, h3, h4, h5, p, ul, ol, li, a, div, span, strong {
+    margin: 0;
+    font-size: inherit;
+    font-weight: normal;
+    color: inherit;
+    background: inherit;
+  }
+  ul, ol {
+    list-style: none;
+    padding: 0;
+  }
+  a {
+    text-decoration: none;
   }
 `
 

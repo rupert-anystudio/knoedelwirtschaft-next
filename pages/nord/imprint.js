@@ -1,8 +1,11 @@
 import { getSheetData } from '../../lib/api'
 import revalidate from '../../lib/revalidate'
+import PageImprint from '../../components/PageImprint'
 
 export default function ImprintNord() {
-  return null
+  return (
+    <PageImprint />
+  )
 }
 
 export async function getStaticProps({ preview = false }) {
@@ -11,11 +14,11 @@ export async function getStaticProps({ preview = false }) {
     'globals',
   ])
   return {
+    revalidate,
     props: {
-      data,
       restaurantSlug: 'nord',
       preview,
+      data,
     },
-    revalidate
   }
 }

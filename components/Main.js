@@ -6,6 +6,9 @@ const Main = styled.main`
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
+  align-self: stretch;
+  background: var(--bg);
+  color: var(--txt);
 `
 
 export default Main

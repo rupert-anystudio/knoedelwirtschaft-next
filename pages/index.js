@@ -1,25 +1,23 @@
 import { getSheetData } from '../lib/api'
 import revalidate from '../lib/revalidate'
-import RestaurantSelect from '../components/RestaurantSelect'
+import PageLanding from '../components/PageLanding'
 
-export default function Index({ data }) {
+export default function Landing() {
   return (
-    <>
-      <RestaurantSelect restaurants={data.restaurants} />
-    </>
+    <PageLanding />
   )
 }
 
 export async function getStaticProps({ preview = false }) {
   const data = await getSheetData([
-    'restaurants', 
+    'restaurants',
     'globals',
   ])
   return {
+    revalidate,
     props: {
-      data,
       preview,
+      data,
     },
-    revalidate
   }
 }

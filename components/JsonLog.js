@@ -4,16 +4,11 @@ const Wrap = styled.div`
   font-size: 12px;
   line-height: 1.2;
   font-family: monospace;
-  background: lavenderblush;
+  background: var(--txt);
+  color: var(--bg);
   display: block;
-  padding: 20px;
+  padding: var(--gutter);
   border-radius: 5px;
-  margin: 10px;
-  code {
-    pre {
-
-    }
-  }
 `
 
 const JsonLog = ({ data, label }) => {

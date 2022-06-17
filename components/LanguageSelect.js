@@ -1,18 +1,15 @@
 import Link from 'next/link'
 import styled from 'styled-components'
-import useLanguageSelect from './useLanguageSelect'
+import useLanguageSelect from '../hooks/useLanguageSelect'
+import Button from './Button'
 
 const Wrap = styled.div`
   display: flex;
-  padding: 4rem;
-  a {
-    margin: 0 .2rem;
-    text-decoration: none;
-    background: var(--bg);
-    color: var(--txt);
-    padding: 0.1rem 0.4rem;
-    border-radius: .4rem;
-    box-shadow: var(--btn-shadow);
+  flex-direction: row;
+  > a {
+    &:not(:last-child) {
+      margin-right: .8em;
+    }
   }
 `
 
@@ -32,8 +29,15 @@ const LanguageSelect = () => {
           href={href}
           locale={locale}
           isActive={isActive}
+          passHref
+          scroll={false}
         >
-          <a className={isActive ? 'isActive' : 'isInactive'}>{label}</a>
+          <Button
+            as='a'
+            isActive={isActive}
+          >
+            {label}
+          </Button>
         </Link>
       ))}
     </Wrap>
