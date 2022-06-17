@@ -4,8 +4,8 @@ export const LogoMain = styled.div`
   font-size: calc(var(--fs-logo) * 1.4);
   line-height: 1;
   white-space: pre-wrap;
-  font-family: var(--ff-title);
-  /* transform: translate3d(0, calc(var(--ff-title-offset) * var(--offset)), 0); */
+  font-family: var(--ff-logo);
+  transform: translate3d(0, calc(var(--ff-logo-offset) * -0.08em), 0);
   text-align: center;
   color: var(--txt);
   background: var(--bg);

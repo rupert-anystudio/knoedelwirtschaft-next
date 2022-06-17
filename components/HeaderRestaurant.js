@@ -142,7 +142,7 @@ const HeaderRestaurant = () => {
     slugs,
   } = useAppContext()
   const nextSlug = slugs[0] === 'nord' ? 'sued' : 'nord'
-  const hrefRestaurantSwitch = [nextSlug, ...slugs.slice(1)].filter(Boolean).join('/')
+  const hrefRestaurantSwitch = `/${[nextSlug, ...slugs.slice(1)].filter(Boolean).join('/')}`
   const {
     hoursTitle
   } = globals

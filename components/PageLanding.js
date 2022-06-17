@@ -72,7 +72,7 @@ const PageLanding = () => {
             )
           })}
         </Restaurants>
-        {/* <Restaurants>
+        <Restaurants>
           {restaurants.map(({
             id,
             name,
@@ -121,7 +121,7 @@ const PageLanding = () => {
               </div>
             )
           })}
-        </Restaurants> */}
+        </Restaurants>
       </Main>
     </>
   )
