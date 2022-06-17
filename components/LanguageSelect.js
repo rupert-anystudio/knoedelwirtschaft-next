@@ -4,15 +4,17 @@ import useLanguageSelect from './useLanguageSelect'
 
 const Wrap = styled.div`
   display: flex;
-  padding: 4rem;
+  flex-direction: row;
   a {
-    margin: 0 .2rem;
     text-decoration: none;
     background: var(--bg);
     color: var(--txt);
     padding: 0.1rem 0.4rem;
     border-radius: .4rem;
     box-shadow: var(--btn-shadow);
+    &:not(:last-child) {
+      margin-right: .5rem;
+    }
   }
 `
 

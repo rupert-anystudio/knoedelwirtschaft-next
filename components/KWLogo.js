@@ -1,20 +1,19 @@
-import { forwardRef } from 'react'
+import Link from 'next/link'
 import styled from 'styled-components'
 
-const Wrap = styled.div`
+const Logo = styled.div`
   color: inherit;
   text-decoration: none;
   text-align: center;
   text-rendering: optimizeLegibility;
   font-size: clamp(8rem, 26vw, 24rem);
-  margin: 2rem;
 `
 
 const KW = styled.div`
   font-size: 0.38em;
   line-height: 0.88;
   white-space: pre-wrap;
-  font-family: 'Grobe Deutschmeister';
+  font-family: var(--fraktur);
   font-weight: normal;
 `
 
@@ -37,14 +36,28 @@ const Area = styled.div`
 const KWLogo = ({
   name,
   area,
-}, ref) => {
-  return (
-    <Wrap ref={ref}>
+  href,
+  ...rest
+}) => {
+  const logo = (
+    <>
       <KW>{`Knödel\nwirtschaft`}</KW>
       <Name>{name}</Name>
-      <Area>{area}</Area>
-    </Wrap>
+      {/* <Area>{area}</Area> */}
+    </>
+  )
+  if (!href) return (
+    <Logo {...rest}>
+      {logo}
+    </Logo>
+  )
+  return (
+    <Logo {...rest}>
+      <Link passHref href={href}>
+        <a>{logo}</a>
+      </Link>
+    </Logo>
   )
 }
 
-export default forwardRef(KWLogo)
+export default KWLogo

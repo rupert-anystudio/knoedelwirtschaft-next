@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import styled from 'styled-components'
+import { useAppContext } from './AppContext'
 import KWLogo from './KWLogo'
 
 const Wrap = styled.div`
@@ -19,7 +20,8 @@ const Restaurant = styled.a`
   text-decoration: none;
 `
 
-const RestaurantSelect = ({ restaurants = [] }) => {
+const RestaurantSelect = () => {
+  const { restaurants = [] } = useAppContext()
   return (
     <Wrap>
       {restaurants.map(({

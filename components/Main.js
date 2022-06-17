@@ -6,6 +6,7 @@ const Main = styled.main`
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
+  align-self: stretch;
 `
 
 export default Main

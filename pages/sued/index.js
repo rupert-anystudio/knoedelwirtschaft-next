@@ -1,8 +1,11 @@
 import { getSheetData } from '../../lib/api'
 import revalidate from '../../lib/revalidate'
+import PageRestaurant from '../../components/PageRestaurant'
 
 export default function Sued() {
-  return null
+  return (
+    <PageRestaurant />
+  )
 }
 
 export async function getStaticProps({ preview = false }) {
@@ -20,11 +23,11 @@ export async function getStaticProps({ preview = false }) {
     'menu_dumplings',
   ])
   return {
+    revalidate,
     props: {
-      data,
       restaurantSlug: 'sued',
       preview,
+      data,
     },
-    revalidate
   }
 }
