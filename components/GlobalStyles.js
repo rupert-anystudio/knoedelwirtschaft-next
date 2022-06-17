@@ -1,41 +1,61 @@
 import { createGlobalStyle } from 'styled-components'
 import media from '../lib/media'
-import { useAppContext } from './AppContext'
 
-const Styles = createGlobalStyle`
+const GlobalStyles = createGlobalStyle`
   :root {
-    --txt: ${props => props.txt};
-    --bg: ${props => props.bg};
     --btn-shadow: 0px 0px 5px 1px rgba(0,0,0,0.6);
     --btn-shadow-dim: 0px 0px 5px 1px rgba(0,0,0,0.3);
     --ff-title: 'Grobe Deutschmeister';
-    --ff-sans: 'Suisse Intl';
-    --fs-root: 1.55rem;
-    --fs-title: 3.4rem;
-    --fs-logo: 4.6rem;
-    --fs-logo-name: 12rem;
-    --fs-logo-area: 3.4rem;
-    --lh-root: 1.4;
-    --lh-title: 1;
+    --ff-body: 'Suisse Intl';
+    --offset: 0.1em;
+    --fs-root: clamp(1.3rem,2.8vw,1.6rem);
+    --fs-logo: clamp(2.6rem,8vw,5.8rem);
+    --fs-title: clamp(2.6rem,8vw,5.8rem);
+    --lh-root: 1.45;
+    --gutter: 2rem;
     --h-header: 0px;
-    --maxw-app: 68rem;
-  }
-  ${media.menuTwoCol} {
-    :root {
-      --fs-logo: 5.8rem;
-      --fs-logo-name: 16.5rem;
-      --fs-title: 4.8rem;
-      --h-header: 12rem;
+    --maxw-app: 86rem;
+    ${media.leftRight} {
+      --h-header: 16rem;
+    }
+    ${media.large} {
       --maxw-app: 144rem;
     }
   }
-  ${media.verySmall} {
-    :root {
-      --fs-root: 1.3rem;
-      --fs-logo: 3.8rem;
-      --fs-logo-name: 10rem;
-      --fs-logo-area: 2.8rem;
-      --fs-title: 2.8rem;
+  .base {
+    --ff-title: 'Grobe Deutschmeister';
+    --ff-body: 'Suisse Intl';
+    --bg: white;
+    --txt: black;
+    --ff-title-offset: -1;
+    --ff-body-offset: 0;
+    &.inverted {
+      --bg: black;
+      --txt: white;
+    }
+  }
+  .sued {
+    --ff-title: 'Grobe Deutschmeister';
+    --ff-body: 'Suisse Intl';
+    --bg: #00FA00;
+    --txt: black;
+    --ff-title-offset: -1;
+    --ff-body-offset: 0;
+    &.inverted {
+      --bg: black;
+      --txt: white;
+    }
+  }
+  .nord {
+    --ff-title: 'Suisse Intl';
+    --ff-body: 'Grobe Deutschmeister';
+    --bg: white;
+    --txt: #6140F5;
+    --ff-title-offset: 0;
+    --ff-body-offset: -1;
+    &.inverted {
+      --bg: #6140F5;
+      --txt: white;
     }
   }
   *, *:before, *:after {
@@ -63,9 +83,7 @@ const Styles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     overflow: scroll;
     overflow-x: hidden;
-    background: var(--bg);
-    color: var(--txt);
-    font-family: var(--ff-sans);
+    font-family: var(--ff-body);
     font-size: var(--fs-root);
     line-height: var(--lh-root);
   }
@@ -78,10 +96,12 @@ const Styles = createGlobalStyle`
     align-items: center;
     margin: 0 auto;
   }
-  h1, h2, h3, h4, h5, p, ul, ol {
+  h1, h2, h3, h4, h5, p, ul, ol, li, a, div, span, strong {
     margin: 0;
     font-size: inherit;
     font-weight: normal;
+    color: inherit;
+    background: inherit;
   }
   ul, ol {
     list-style: none;
@@ -89,15 +109,7 @@ const Styles = createGlobalStyle`
   }
   a {
     text-decoration: none;
-    color: inherit;
   }
 `
-
-const GlobalStyles = () => {
-  const { theme } = useAppContext()
-  return (
-    <Styles {...theme} />
-  )
-}
 
 export default GlobalStyles

@@ -1,5 +1,5 @@
 import { forwardRef } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 const Wrap = styled.button`
   position: relative;
@@ -12,15 +12,22 @@ const Wrap = styled.button`
   border-radius: 1em;
   outline: none;
   appearance: none;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
+  font-family: inherit;
+  line-height: inherit;
+  cursor: pointer;
   &[disabled] {
     cursor: default;
-    box-shadow: var(--btn-shadow-dim);
-    span {
-      opacity: 0.4;
-    }
   }
-  &:not([disabled]) {
+  ${props => props.isActive && css`
+    cursor: default;
+    box-shadow: none;
+    border-color: var(--txt);
+    span {
+      opacity: 0.8;
+    }
+  `}
+  ${props => !props.isActive && css`
     cursor: pointer;
     box-shadow: var(--btn-shadow);
     &:hover {
@@ -29,7 +36,7 @@ const Wrap = styled.button`
         color: var(--bg);
       }
     }
-  }
+  `}
 `
 
 const Button = ({ children, ...rest }, ref) => {

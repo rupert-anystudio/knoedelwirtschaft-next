@@ -16,7 +16,6 @@ export const AppContextProvider = ({ children, data = {}, restaurantSlug }) => {
   const slugs = pathname.slice(1).split('/').filter(Boolean)
 
   const restaurant = data?.restaurants?.find(restr => restr.slug === restaurantSlug)
-  const theme = themes[restaurantSlug] || themes.default
 
   const getRestaurantField = useCallback((entry = {}, field = 'value') => {
     return entry[`${field}_${restaurantSlug}`] || null
@@ -58,7 +57,6 @@ export const AppContextProvider = ({ children, data = {}, restaurantSlug }) => {
         globals,
         labels,
         additives,
-        theme,
         getLocaleField,
         getRestaurantField,
         getIsAvailable,

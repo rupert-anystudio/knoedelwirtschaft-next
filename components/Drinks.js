@@ -35,6 +35,7 @@ const Drink = styled.div`
   span {
     order: 1;
     text-align: left;
+    white-space: pre;
   }
   h4 {
     order: 2;
@@ -44,6 +45,7 @@ const Drink = styled.div`
     order: 3;
     font-weight: normal;
     text-align: right;
+    white-space: pre;
   }
 `
 

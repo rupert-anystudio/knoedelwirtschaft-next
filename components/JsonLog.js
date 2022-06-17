@@ -7,7 +7,7 @@ const Wrap = styled.div`
   background: var(--txt);
   color: var(--bg);
   display: block;
-  padding: 2rem;
+  padding: var(--gutter);
   border-radius: 5px;
 `
 

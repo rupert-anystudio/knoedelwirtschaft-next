@@ -34,7 +34,7 @@ const LanguageSelect = () => {
         >
           <Button
             as='a'
-            disabled={isActive}
+            isActive={isActive}
           >
             {label}
           </Button>

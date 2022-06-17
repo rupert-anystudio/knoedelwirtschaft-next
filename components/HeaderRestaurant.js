@@ -5,17 +5,47 @@ import media from '../lib/media'
 import { useAppContext } from './AppContext'
 import LanguageSelect from './LanguageSelect'
 import { LogoArea, LogoMain, LogoRestaurant } from './Logo'
+import Section from './Section'
+
+const Intro = styled.div`
+  position: relative;
+  text-align: center;
+  padding: calc(var(--gutter) * 4) 0 0 0;
+  background: var(--bg);
+  color: var(--txt);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: var(--fs-logo);
+`
 
 const Header = styled.header`
   flex: 0 0 auto;
   align-self: stretch;
   position: relative;
-  padding: 0 2rem;
-  ${media.menuTwoCol} {
+  background: var(--bg);
+  color: var(--txt);
+  ${media.leftRight} {
     z-index: 2;
     position: sticky;
     top: 0;
-    /* border-bottom: 1px solid currentColor; */
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: inherit;
+      height: 4rem;
+      box-shadow: 0px 0 50px -9px rgba(0,0,0,0.8);
+    }
+  }
+  > div {
+    position: relative;
+    padding: 0 var(--gutter);
+    background: var(--bg);
+    color: var(--txt);
   }
 `
 
@@ -23,18 +53,21 @@ const Content = styled.div`
   width: 100%;
   max-width: var(--maxw-app);
   min-height: var(--h-header);
+  padding: var(--gutter) 0 calc(var(--gutter) * 4) 0;
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 1rem;
-  padding: 2rem 0 1rem 0;
+  grid-gap: var(--gutter);
   margin: 0 auto;
   background: var(--bg);
+  color: var(--txt);
+  /* border-bottom: 1px solid currentColor; */
   ${media.leftRight} {
     grid-template-columns: 1fr 1fr 1fr;
     align-items: end;
+    padding-bottom: var(--gutter);
   }
-  ${media.menuTwoCol} {
+  ${media.large} {
     /* border-bottom: 1px solid currentColor; */
   }
 `
@@ -81,21 +114,22 @@ const ActionsBlock = styled.div`
   }
 `
 
-const Intro = styled.div`
-  position: relative;
-  text-align: center;
-  margin: 4rem 0 0 0;
-  a {
-    display: block;
+const LogoArea_ = styled(LogoArea)`
+  z-index: 3;
+  ${media.leftRight} {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
   }
 `
 
-const StickyArea = styled.div`
-  margin-bottom: 1.8em;
-  ${media.menuTwoCol} {
-    z-index: 3;
+const StickyArea = styled.span`
+  ${media.leftRight} {
     position: sticky;
-    top: 2rem;
+    top: var(--gutter);
+    width: auto;
+    margin-bottom: -99999px;
   }
 `
 
@@ -132,36 +166,38 @@ const HeaderRestaurant = () => {
         <Link href={hrefRestaurantSwitch} passHref scroll={false}>
           <LogoRestaurant as='a'>{name}</LogoRestaurant>
         </Link>
-      </Intro>
-      <StickyArea>
         <Link href={hrefRestaurantSwitch} passHref scroll={false}>
-          <LogoArea as='a'>{city_area}</LogoArea>
+          <LogoArea_ as='a'>
+            <StickyArea>{city_area}</StickyArea>
+          </LogoArea_>
         </Link>
-      </StickyArea>
+      </Intro>
       <Header>
-        <Content>
-          <HoursBlock>
-            <span>{hoursTitle}:</span>
-            <span>{hours}</span>
-          </HoursBlock>
-          <ContactBlock>
-            <a href={`tel:004930${phone}`}>{`030 / ${phone}`}</a>
-            <a href={`mailto:${mail}`}>{mail}</a>
-            <address>
-              <a
-                href={`https://maps.google.com/?q=Knödelwirtschaft,+${street}+${street_nr},+${postal}+${city}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {`${street} ${street_nr}, ${postal} ${city}`}
-              </a>
-            </address>
-          </ContactBlock>
-          <ActionsBlock>
-            {/* <Restaurant>{city_area}</Restaurant> */}
-            <LanguageSelect />
-          </ActionsBlock>
-        </Content>
+        <div>
+          <Content>
+            <HoursBlock>
+              <span>{hoursTitle}:</span>
+              <span>{hours}</span>
+            </HoursBlock>
+            <ContactBlock>
+              <a href={`tel:004930${phone}`}>{`030 / ${phone}`}</a>
+              <a href={`mailto:${mail}`}>{mail}</a>
+              <address>
+                <a
+                  href={`https://maps.google.com/?q=Knödelwirtschaft,+${street}+${street_nr},+${postal}+${city}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {`${street} ${street_nr}, ${postal} ${city}`}
+                </a>
+              </address>
+            </ContactBlock>
+            <ActionsBlock>
+              {/* <Restaurant>{city_area}</Restaurant> */}
+              <LanguageSelect />
+            </ActionsBlock>
+          </Content>
+        </div>
       </Header>
     </>
   )

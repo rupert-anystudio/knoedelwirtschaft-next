@@ -7,6 +7,8 @@ const Main = styled.main`
   justify-content: flex-start;
   align-items: stretch;
   align-self: stretch;
+  background: var(--bg);
+  color: var(--txt);
 `
 
 export default Main
