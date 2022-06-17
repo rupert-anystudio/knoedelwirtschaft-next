@@ -1,10 +1,10 @@
 import { getSheetData } from '../../lib/api'
 import revalidate from '../../lib/revalidate'
-import PageRestaurantImprint from '../../components/PageRestaurantImprint'
+import PageImprint from '../../components/PageImprint'
 
 export default function ImprintNord() {
   return (
-    <PageRestaurantImprint />
+    <PageImprint />
   )
 }
 

@@ -1,41 +1,22 @@
 import { useRouter } from 'next/router'
 import { createContext, useCallback, useContext } from 'react'
+import themes from '../lib/themes'
 
 export const AppContext = createContext(null)
 
 export const useAppContext = () => useContext(AppContext)
 
-const themes = {
-  dark: {
-    txt: '#ffffff',
-    bg: '#000000',
-  },
-  light: {
-    txt: '#000000',
-    bg: '#ffffff',
-  },
-  sued: {
-    txt: '#000000',
-    bg: '#ffffff',
-  },
-  sued: {
-    txt: '#000000',
-    bg: '#00FA00',
-  },
-  nord: {
-    txt: '#ffffff',
-    bg: '#6140F5'
-  },
-}
-
 export const AppContextProvider = ({ children, data = {}, restaurantSlug }) => {
   const {
     locale,
     defaultLocale,
+    pathname,
   } = useRouter()
 
+  const slugs = pathname.slice(1).split('/').filter(Boolean)
+
   const restaurant = data?.restaurants?.find(restr => restr.slug === restaurantSlug)
-  const theme = themes[restaurantSlug] || themes.dark
+  const theme = themes[restaurantSlug] || themes.default
 
   const getRestaurantField = useCallback((entry = {}, field = 'value') => {
     return entry[`${field}_${restaurantSlug}`] || null
@@ -81,6 +62,7 @@ export const AppContextProvider = ({ children, data = {}, restaurantSlug }) => {
         getLocaleField,
         getRestaurantField,
         getIsAvailable,
+        slugs,
       }}
     >
       {children}

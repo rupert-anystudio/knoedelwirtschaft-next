@@ -1,5 +1,5 @@
 import { parseNumber } from '../lib/utils'
-import { useAppContext } from './AppContext'
+import { useAppContext } from '../components/AppContext'
 
 export const useDishes = (category) => {
   const {

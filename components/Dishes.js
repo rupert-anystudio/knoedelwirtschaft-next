@@ -21,9 +21,9 @@ const Dish = styled.li`
   }
   ${props => !props.isSmall && css`
     h3 {
-      font-family: var(--fraktur);
+      font-family: var(--ff-title);
       font-size: var(--fs-title);
-      line-height: var(--lh-title);
+      line-height: 1;
     }
   `}
   > strong {

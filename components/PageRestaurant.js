@@ -1,13 +1,13 @@
 import { useAppContext } from './AppContext'
-import RestaurantHeader from './RestaurantHeader'
+import HeaderRestaurant from './HeaderRestaurant'
 import Main from './Main'
 import Menue, { MenueCol, Section } from './Menue'
 import Drinks from './Drinks'
 import Dishes from './Dishes'
-import { useDishes, useDrinksByCategory, useDumplingDishes } from './menueHooks'
+import { useDishes, useDrinksByCategory, useDumplingDishes } from '../hooks/menueHooks'
 
 const PageRestaurant = () => {
-  const { globals = {}, restaurant } = useAppContext()
+  const { globals = {}, restaurant = {} } = useAppContext()
   const { menuDumplings, menuSavory, menuDessert, menuDrinks } = globals
   const dumplingDishes = useDumplingDishes()
   const dumplings = useDishes('dumpling')
@@ -17,7 +17,7 @@ const PageRestaurant = () => {
   const drinksByCategory = useDrinksByCategory()
   return (
     <>
-      <RestaurantHeader />
+      <HeaderRestaurant />
       <Main>
         <Menue>
           <MenueCol>

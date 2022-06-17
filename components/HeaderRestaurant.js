@@ -1,36 +1,41 @@
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 import styled from 'styled-components'
 import media from '../lib/media'
 import { useAppContext } from './AppContext'
 import LanguageSelect from './LanguageSelect'
+import { LogoArea, LogoMain, LogoRestaurant } from './Logo'
 
 const Header = styled.header`
   flex: 0 0 auto;
   align-self: stretch;
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 1rem;
   padding: 0 2rem;
-  ${media.leftRight} {
-    min-height: var(--h-header);
-    background: var(--bg);
+  ${media.menuTwoCol} {
     z-index: 2;
     position: sticky;
     top: 0;
+    /* border-bottom: 1px solid currentColor; */
   }
 `
 
-const Blocks = styled.div`
+const Content = styled.div`
   width: 100%;
+  max-width: var(--maxw-app);
+  min-height: var(--h-header);
   position: relative;
-  padding: 2em 0;
-  border-bottom: 1px dashed currentColor;
   display: grid;
   grid-template-columns: 1fr;
-  grid-row-gap: 1em;
+  grid-gap: 1rem;
+  padding: 2rem 0 1rem 0;
+  margin: 0 auto;
+  background: var(--bg);
   ${media.leftRight} {
     grid-template-columns: 1fr 1fr 1fr;
     align-items: end;
+  }
+  ${media.menuTwoCol} {
+    /* border-bottom: 1px solid currentColor; */
   }
 `
 
@@ -76,42 +81,33 @@ const ActionsBlock = styled.div`
   }
 `
 
-const Logo = styled.div`
-  font-size: var(--fs-logo);
-  line-height: var(--lh-logo);
-  white-space: pre-wrap;
-  font-family: var(--fraktur);
+const Intro = styled.div`
+  position: relative;
   text-align: center;
-  margin-bottom: 0.8em;
-  margin-top: 1.2em;
-`
-
-const Name = styled.div`
-  font-size: var(--fs-logo-name);
-  line-height: var(--lh-logo-name);
-  text-transform: uppercase;
-  white-space: pre-wrap;
-  font-family: var(--sans);
-  text-align: center;
-  margin-bottom: -0.1em;
-`
-
-const Kiez = styled.div`
-  font-size: var(--fs-title);
-  line-height: var(--lh-title);
-  ${media.leftRight} {
-    z-index: 3;
-    position: sticky;
-    top: 1rem;
+  margin: 4rem 0 0 0;
+  a {
+    display: block;
   }
 `
 
-const RestaurantHeader = () => {
+const StickyArea = styled.div`
+  margin-bottom: 1.8em;
+  ${media.menuTwoCol} {
+    z-index: 3;
+    position: sticky;
+    top: 2rem;
+  }
+`
+
+const HeaderRestaurant = () => {
   const {
     globals = {},
     restaurant = {},
     getLocaleField,
+    slugs,
   } = useAppContext()
+  const nextSlug = slugs[0] === 'nord' ? 'sued' : 'nord'
+  const hrefRestaurantSwitch = [nextSlug, ...slugs.slice(1)].filter(Boolean).join('/')
   const {
     hoursTitle
   } = globals
@@ -129,11 +125,21 @@ const RestaurantHeader = () => {
   const hours = getLocaleField(entry, 'hours')
   return (
     <>
-      <Logo>{`Knödel\nwirtschaft`}</Logo>
-      <Name>{name}</Name>
-      <Kiez>{city_area}</Kiez>
+      <Intro>
+        <Link href='/' passHref>
+          <LogoMain as='a'>{`Knödel\nwirtschaft`}</LogoMain>
+        </Link>
+        <Link href={hrefRestaurantSwitch} passHref scroll={false}>
+          <LogoRestaurant as='a'>{name}</LogoRestaurant>
+        </Link>
+      </Intro>
+      <StickyArea>
+        <Link href={hrefRestaurantSwitch} passHref scroll={false}>
+          <LogoArea as='a'>{city_area}</LogoArea>
+        </Link>
+      </StickyArea>
       <Header>
-        <Blocks>
+        <Content>
           <HoursBlock>
             <span>{hoursTitle}:</span>
             <span>{hours}</span>
@@ -155,10 +161,10 @@ const RestaurantHeader = () => {
             {/* <Restaurant>{city_area}</Restaurant> */}
             <LanguageSelect />
           </ActionsBlock>
-        </Blocks>
+        </Content>
       </Header>
     </>
   )
 }
 
-export default RestaurantHeader
+export default HeaderRestaurant

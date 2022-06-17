@@ -6,22 +6,36 @@ const Styles = createGlobalStyle`
   :root {
     --txt: ${props => props.txt};
     --bg: ${props => props.bg};
-    --btn-shadow: 0px 0px 8px 0px rgba(0,0,0,0.4);
-    --fraktur: 'Grobe Deutschmeister';
-    --sans: 'Suisse Intl';
-    --fs-root: 1.3rem;
+    --btn-shadow: 0px 0px 5px 1px rgba(0,0,0,0.6);
+    --btn-shadow-dim: 0px 0px 5px 1px rgba(0,0,0,0.3);
+    --ff-title: 'Grobe Deutschmeister';
+    --ff-sans: 'Suisse Intl';
+    --fs-root: 1.55rem;
+    --fs-title: 3.4rem;
+    --fs-logo: 4.6rem;
+    --fs-logo-name: 12rem;
+    --fs-logo-area: 3.4rem;
     --lh-root: 1.4;
-    --fs-title: 3.4em;
     --lh-title: 1;
-    --fs-logo: 5.8rem;
-    --lh-logo: 1;
-    --fs-logo-name: 16rem;
-    --lh-logo-name: 1;
     --h-header: 0px;
+    --maxw-app: 68rem;
   }
   ${media.menuTwoCol} {
     :root {
-      --h-header: 11rem;
+      --fs-logo: 5.8rem;
+      --fs-logo-name: 16.5rem;
+      --fs-title: 4.8rem;
+      --h-header: 12rem;
+      --maxw-app: 144rem;
+    }
+  }
+  ${media.verySmall} {
+    :root {
+      --fs-root: 1.3rem;
+      --fs-logo: 3.8rem;
+      --fs-logo-name: 10rem;
+      --fs-logo-area: 2.8rem;
+      --fs-title: 2.8rem;
     }
   }
   *, *:before, *:after {
@@ -51,13 +65,12 @@ const Styles = createGlobalStyle`
     overflow-x: hidden;
     background: var(--bg);
     color: var(--txt);
-    font-family: var(--sans);
+    font-family: var(--ff-sans);
     font-size: var(--fs-root);
     line-height: var(--lh-root);
   }
   #__next {
     width: 100%;
-    max-width: 144rem;
     flex: 1;
     display: flex;
     flex-direction: column;

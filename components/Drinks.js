@@ -16,9 +16,9 @@ const Category = styled.li`
 const CategoryName = styled.div`
   position: relative;
   h3 {
-    font-family: var(--fraktur);
+    font-family: var(--ff-title);
     font-size: var(--fs-title);
-    line-height: var(--lh-title);
+    line-height: 1;
     text-align: center;
   }
   span {
@@ -62,7 +62,7 @@ const Drinks = ({ entries = [] }) => {
                 return (
                   <Drink key={drink.id} {...drink}>
                     <h4>{drink.name}</h4>
-                    <span>{drink.prices.map(({ amount }) => amount).join(' / ')}</span>
+                    <span>{drink.prices.map(({ amount }) => unit === 'cl' ? (amount * 100) : amount).join(' / ')}</span>
                     <strong>{drink.prices.map(({ price }) => price).join(' / ')}</strong>
                   </Drink>
                 )
