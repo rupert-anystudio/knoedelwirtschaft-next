@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import media from '../lib/media'
 import { useAppContext } from './AppContext'
 import LanguageSelect from './LanguageSelect'
-import KWLogo from './KWLogo'
 
 const Header = styled.header`
   flex: 0 0 auto;
@@ -24,11 +23,11 @@ const Header = styled.header`
 const Blocks = styled.div`
   width: 100%;
   position: relative;
-  padding: 2rem 0;
+  padding: 2em 0;
   border-bottom: 1px dashed currentColor;
   display: grid;
   grid-template-columns: 1fr;
-  grid-row-gap: 1rem;
+  grid-row-gap: 1em;
   ${media.leftRight} {
     grid-template-columns: 1fr 1fr 1fr;
     align-items: end;
@@ -77,30 +76,29 @@ const ActionsBlock = styled.div`
   }
 `
 
-const IntroLogo = styled(KWLogo)`
-  margin: 8rem 2rem 0 2rem;
-`
-
 const Logo = styled.div`
   font-size: var(--fs-logo);
-  line-height: 0.88;
+  line-height: var(--lh-logo);
   white-space: pre-wrap;
   font-family: var(--fraktur);
   text-align: center;
-  margin-bottom: .3em;
+  margin-bottom: 0.8em;
+  margin-top: 1.2em;
 `
 
 const Name = styled.div`
-  font-size: var(--fs-name);
-  line-height: 0.88;
+  font-size: var(--fs-logo-name);
+  line-height: var(--lh-logo-name);
+  text-transform: uppercase;
   white-space: pre-wrap;
   font-family: var(--sans);
   text-align: center;
-  margin-bottom: .3em;
+  margin-bottom: -0.1em;
 `
 
 const Kiez = styled.div`
-  font-size: 4rem;
+  font-size: var(--fs-title);
+  line-height: var(--lh-title);
   ${media.leftRight} {
     z-index: 3;
     position: sticky;
@@ -109,7 +107,11 @@ const Kiez = styled.div`
 `
 
 const RestaurantHeader = () => {
-  const { globals = {}, restaurant = {}, getLocaleField } = useAppContext()
+  const {
+    globals = {},
+    restaurant = {},
+    getLocaleField,
+  } = useAppContext()
   const {
     hoursTitle
   } = globals

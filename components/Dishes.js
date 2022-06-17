@@ -23,7 +23,7 @@ const Dish = styled.li`
     h3 {
       font-family: var(--fraktur);
       font-size: var(--fs-title);
-      line-height: 1;
+      line-height: var(--lh-title);
     }
   `}
   > strong {

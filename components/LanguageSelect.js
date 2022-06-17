@@ -9,7 +9,7 @@ const Wrap = styled.div`
     text-decoration: none;
     background: var(--bg);
     color: var(--txt);
-    padding: 0.1rem 0.4rem;
+    padding: .1rem .4rem;
     border-radius: .4rem;
     box-shadow: var(--btn-shadow);
     &:not(:last-child) {

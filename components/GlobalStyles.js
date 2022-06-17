@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import media from '../lib/media'
 import { useAppContext } from './AppContext'
 
 const Styles = createGlobalStyle`
@@ -8,11 +9,20 @@ const Styles = createGlobalStyle`
     --btn-shadow: 0px 0px 8px 0px rgba(0,0,0,0.4);
     --fraktur: 'Grobe Deutschmeister';
     --sans: 'Suisse Intl';
-    --fs-root: clamp(1.3rem, 1.15vw, 1.55rem);
-    --fs-title: clamp(4.6rem, 8vw, 6.2rem);
-    --fs-logo: clamp(4.6rem, 8vw, 6.2rem);
-    --fs-name: 30rem;
-    --h-header: 11rem;
+    --fs-root: 1.3rem;
+    --lh-root: 1.4;
+    --fs-title: 3.4em;
+    --lh-title: 1;
+    --fs-logo: 5.8rem;
+    --lh-logo: 1;
+    --fs-logo-name: 16rem;
+    --lh-logo-name: 1;
+    --h-header: 0px;
+  }
+  ${media.menuTwoCol} {
+    :root {
+      --h-header: 11rem;
+    }
   }
   *, *:before, *:after {
     box-sizing: border-box;
@@ -34,28 +44,26 @@ const Styles = createGlobalStyle`
     padding: 0;
     margin: 0;
     display: flex;
-    font-family: var(--sans);
-    font-size: var(--fs-root);
-    line-height: 1.3;
     flex-direction: column;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     overflow: scroll;
     overflow-x: hidden;
+    background: var(--bg);
+    color: var(--txt);
+    font-family: var(--sans);
+    font-size: var(--fs-root);
+    line-height: var(--lh-root);
   }
   #__next {
     width: 100%;
-    max-width: 100%;
+    max-width: 144rem;
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     margin: 0 auto;
-  }
-  html, body, #__next {
-    background: var(--bg);
-    color: var(--txt);
   }
   h1, h2, h3, h4, h5, p, ul, ol {
     margin: 0;

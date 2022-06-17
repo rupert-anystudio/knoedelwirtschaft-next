@@ -6,7 +6,7 @@ const Logo = styled.div`
   text-decoration: none;
   text-align: center;
   text-rendering: optimizeLegibility;
-  font-size: clamp(8rem, 26vw, 24rem);
+  font-size: clamp(8em, 26vw, 24em);
 `
 
 const KW = styled.div`

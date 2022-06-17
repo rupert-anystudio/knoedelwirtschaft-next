@@ -18,7 +18,7 @@ const CategoryName = styled.div`
   h3 {
     font-family: var(--fraktur);
     font-size: var(--fs-title);
-    line-height: 1;
+    line-height: var(--lh-title);
     text-align: center;
   }
   span {
