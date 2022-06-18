@@ -19,6 +19,12 @@ const Wrap = styled.button`
   &[disabled] {
     cursor: default;
   }
+    &:hover {
+      @media (hover: hover) {
+        background: var(--txt);
+        color: var(--bg);
+      }
+    }
   ${props => props.isActive && css`
     cursor: default;
     box-shadow: none;
@@ -29,13 +35,7 @@ const Wrap = styled.button`
   `}
   ${props => !props.isActive && css`
     cursor: pointer;
-    box-shadow: var(--btn-shadow);
-    &:hover {
-      @media (hover: hover) {
-        background: var(--txt);
-        color: var(--bg);
-      }
-    }
+    /* box-shadow: var(--btn-shadow); */
   `}
 `
 

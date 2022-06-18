@@ -37,7 +37,7 @@ const CircleButtonWrap = styled.button`
         text-transform: lowercase;
         font-family: var(--ff-title);
         line-height: 1;
-        transform: translate3d(0, calc(var(--ff-title-offset) * var(--offset) + .2em), 0);
+        transform: translate3d(0, calc(var(--ff-title-offset) * var(--offset)), 0);
       }
     }
   }

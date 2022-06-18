@@ -39,7 +39,7 @@ const GlobalStyles = createGlobalStyle`
     }
   }
   .sued {
-    --ff-logo: 'Suisse Intl';
+    --ff-logo: 'Grobe Deutschmeister';
     --ff-name: 'Grobe Deutschmeister';
     --ff-title: 'Grobe Deutschmeister';
     --ff-body: 'Suisse Intl';
@@ -48,10 +48,10 @@ const GlobalStyles = createGlobalStyle`
     --ff-title-offset: 1;
     --ff-name-offset: 1;
     --ff-body-offset: 0;
-    --ff-logo-offset: 0;
+    --ff-logo-offset: 1;
     &.inverted {
-      --bg: black;
-      --txt: white;
+      /* --bg: black;
+      --txt: white; */
     }
   }
   .nord {

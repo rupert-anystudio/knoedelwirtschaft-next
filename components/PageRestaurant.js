@@ -24,7 +24,7 @@ const PageRestaurant = () => {
     <Main as='div' className={restaurantSlug}>
       <HeaderRestaurant />
       <Main>
-        <Section className={`${restaurantSlug} inverted`}>
+        <Section className={`${restaurantSlug}`}>
           <TakeoutInfo />
           <Booking />
         </Section>

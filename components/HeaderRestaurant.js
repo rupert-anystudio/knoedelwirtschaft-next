@@ -1,11 +1,9 @@
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import styled from 'styled-components'
 import media from '../lib/media'
 import { useAppContext } from './AppContext'
 import LanguageSelect from './LanguageSelect'
 import { LogoArea, LogoMain, LogoRestaurant } from './Logo'
-import Section from './Section'
 
 const Intro = styled.div`
   position: relative;
@@ -31,7 +29,7 @@ const Header = styled.header`
     position: sticky;
     top: 0;
     &:before {
-      content: '';
+      /* content: ''; */
       position: absolute;
       bottom: 0;
       left: 0;
