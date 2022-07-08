@@ -12,18 +12,27 @@ const Wrap = styled.ul`
 const Dish = styled.li`
   position: relative;
   display: grid;
-  grid-template-columns: 4rem 6fr 4rem;
+  grid-template-columns: 1fr 4rem;
   align-items: end;
   grid-gap: 1rem;
   h3, p {
-    text-align: center;
-    grid-column: 2 / 3;
+    grid-column: 1 / 2;
   }
   ${props => !props.isSmall && css`
     h3 {
       font-family: var(--ff-title);
       font-size: var(--fs-title);
-      line-height: 1;
+      line-height: var(--lh-title);
+      grid-column: 1 / 3;
+    }
+  `}
+  ${props => !props.noBorder && css`
+    padding-bottom: 1rem;
+    &:not(:last-child) {
+      border-bottom: 1px solid currentColor;
+    }
+    &:not(:first-child) {
+      padding-top: .5rem;
     }
   `}
   > strong {
@@ -32,12 +41,12 @@ const Dish = styled.li`
   }
 `
 
-const Dishes = ({ entries = [], isSmall }) => {
+const Dishes = ({ entries = [], isSmall, noBorder }) => {
   return (
     <Wrap>
-      {entries.map(({   id, name, info, price }) => {
+      {entries.map(({ id, name, info, price }) => {
         return (
-          <Dish key={id} isSmall={isSmall}>
+          <Dish key={id} isSmall={isSmall} noBorder={noBorder}>
             <h3>{name}</h3>
             {info && <p>{info}</p>}
             {price && (

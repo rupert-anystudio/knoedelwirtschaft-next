@@ -2,20 +2,17 @@ import { forwardRef } from 'react'
 import styled from 'styled-components'
 
 const Wrap = styled.section`
-  width: 100%;
-  padding: 0 var(--gutter);
   position: relative;
-  background: var(--bg);
-  color: var(--txt);
+  width: 100%;
+  margin: 0 auto;
+  max-width: 80rem;
+  padding: 0 2rem;
 `
 
 const Content = styled.div`
-  width: 100%;
-  /* border-bottom: 2px solid currentColor; */
-  max-width: var(--maxw-app);
-  margin: 0 auto;
-  padding: calc(var(--gutter) * 4) 0;
   position: relative;
+  width: 100%;
+  margin: 0 auto;
   background: inherit;
   color: inherit;
 `

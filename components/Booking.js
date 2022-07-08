@@ -29,7 +29,7 @@ const CircleButtonWrap = styled.button`
     text {
       fill: var(--bg);
       font-size: 0.6rem;
-      font-family: var(--ff-body);
+      font-family: var(--ff-root);
       letter-spacing: 0.04rem;
       pointer-events: none;
       &.center {
@@ -37,7 +37,6 @@ const CircleButtonWrap = styled.button`
         text-transform: lowercase;
         font-family: var(--ff-title);
         line-height: 1;
-        transform: translate3d(0, calc(var(--ff-title-offset) * var(--offset)), 0);
       }
     }
   }

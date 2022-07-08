@@ -5,7 +5,7 @@ export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const sheet = new ServerStyleSheet()
     const originalRenderPage = ctx.renderPage
-  
+
     try {
       ctx.renderPage = () =>
         originalRenderPage({
@@ -29,11 +29,10 @@ export default class MyDocument extends Document {
   }
 
   render() {
-    const pageProps = this.props?.__NEXT_DATA__?.props?.pageProps
     return (
       <Html lang='en'>
         <Head />
-        <body className={pageProps.restaurantSlug}>
+        <body>
           <Main />
           <NextScript />
         </body>

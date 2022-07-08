@@ -1,14 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
+import media from '../lib/media'
 import { useAppContext } from './AppContext'
 
 const Wrap = styled.div`
-  padding: var(--gutter);
-  text-align: center;
-  max-width: 42rem;
-  margin: 0 auto calc(var(--gutter) * 2) auto;
+  position: relative;
+  max-width: 39rem;
+  margin: 0;
+  padding: 4rem 0;
   strong, p {
     font-weight: normal;
+  }
+  ${media.twoCols} {
+    text-align: center;
+    margin: 0 auto;
   }
 `
 

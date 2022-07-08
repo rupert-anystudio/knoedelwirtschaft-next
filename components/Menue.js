@@ -1,35 +1,29 @@
 import styled from 'styled-components'
 import media from '../lib/media'
 
-const Wrap = styled.div`
+export const Menue = styled.div`
   position: relative;
   width: 100%;
-  > div {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-column-gap: calc(var(--gutter) * 3);
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
-    /* max-width: var(--maxw-app); */
-    ${media.large} {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  /* display: grid;
+  grid-template-columns: 1fr;
+  grid-column-gap: 6rem;
+  ${media.twoCols} {
+    grid-template-columns: 1fr 1fr;
+  } */
 `
-
-export const Menue = ({ children }) => {
-  return (
-    <Wrap>
-      <div>
-        {children}
-      </div>
-    </Wrap>
-  )
-}
 
 export const MenueCol = styled.div`
   position: relative;
+  width: 100%;
+  /* max-width: 38rem; */
+  /* position: sticky;
+  top: 0; */
   > div {
     position: relative;
     > div:first-child {
@@ -37,13 +31,16 @@ export const MenueCol = styled.div`
       position: sticky;
       top: var(--h-header);
       z-index: 1;
-      padding: var(--gutter) 0 1rem 0;
+      padding: 2rem 0 1rem 0;
       text-transform: uppercase;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      border-bottom: 2px solid currentColor;
-      background: var(--bg);
+      border-bottom: 1px solid currentColor;
+      background: white;
+      ${media.twoCols} {
+        top: 0px;
+      }
     }
     > div:last-child {
       position: relative;

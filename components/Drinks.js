@@ -13,39 +13,29 @@ const Category = styled.li`
   grid-gap: 1rem;
 `
 
-const CategoryName = styled.div`
+const CategoryName = styled.h3`
   position: relative;
-  h3 {
-    font-family: var(--ff-title);
-    font-size: var(--fs-title);
-    line-height: 1;
-    text-align: center;
-  }
-  span {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-  }
+  font-family: var(--ff-title);
+  font-size: var(--fs-title);
+  line-height: var(--lh-title);
 `
 
-const Drink = styled.div`
+const Drink = styled.li`
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  span {
-    order: 1;
-    text-align: left;
-    white-space: pre;
+  grid-template-columns: 1fr auto;
+  padding-top: 1rem;
+  &:not(:last-child) {
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 1rem;
   }
   h4 {
-    order: 2;
-    text-align: center;
+
   }
-  strong {
-    order: 3;
-    font-weight: normal;
+  ul li span {
     text-align: right;
-    white-space: pre;
+    width: 5rem;
+    display: inline-block;
   }
 `
 
@@ -56,16 +46,23 @@ const Drinks = ({ entries = [] }) => {
         return (
           <Category key={id}>
             <CategoryName>
-              <h3>{name}</h3>
-              {unit && <span>{unit}</span>}
+              {name}
             </CategoryName>
             <ul>
               {drinks.map(drink => {
                 return (
                   <Drink key={drink.id} {...drink}>
                     <h4>{drink.name}</h4>
-                    <span>{drink.prices.map(({ amount }) => unit === 'cl' ? (amount * 100) : amount).join(' / ')}</span>
-                    <strong>{drink.prices.map(({ price }) => price).join(' / ')}</strong>
+                    <ul>
+                      {drink.prices.map(({ amount, price }) => {
+                        return (
+                          <li key={`${amount}-${price}`}>
+                            {unit && amount && <span>{`${unit === 'cl' ? (amount * 100) : amount} ${unit}`}</span>}
+                            <span>{price}</span>
+                          </li>
+                        )
+                      })}
+                    </ul>
                   </Drink>
                 )
               })}

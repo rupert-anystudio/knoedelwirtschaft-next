@@ -12,7 +12,7 @@ const Wrap = styled.button`
   border-radius: 1em;
   outline: none;
   appearance: none;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   font-family: inherit;
   line-height: inherit;
   cursor: pointer;
