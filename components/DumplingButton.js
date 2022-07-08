@@ -8,7 +8,7 @@ const Wrap = styled.div`
   pointer-events: none;
   line-height: 0;
   font-size: 2.8rem;
-  ${media.twoCols} {
+  ${media.oneCol} {
     font-size: 3.2rem;
   }
   svg {
@@ -27,7 +27,7 @@ const Wrap = styled.div`
     }
     text {
       fill: white;
-      font-size: 0.2em;
+      font-size: 0.18em;
       font-family: 'Suisse Intl', sans-serif;
       letter-spacing: 0.015em;
       &.center {

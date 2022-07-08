@@ -1,12 +1,16 @@
 import { forwardRef } from 'react'
 import styled from 'styled-components'
+import media from '../lib/media'
 
 const Wrap = styled.section`
   position: relative;
   width: 100%;
   margin: 0 auto;
-  max-width: 90rem;
+  max-width: 100rem;
   padding: 0 2rem;
+  ${media.oneCol} {
+    padding: 0 4rem;
+  }
 `
 
 const Content = styled.div`

@@ -6,24 +6,23 @@ export const Menue = styled.div`
   width: 100%;
   margin: 0 auto;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: flex-start;
-  flex-wrap: wrap;
-  /* display: grid;
-  grid-template-columns: 1fr;
-  grid-column-gap: 6rem;
-  ${media.twoCols} {
+  ${media.twoColsPlus} {
+    display: grid;
     grid-template-columns: 1fr 1fr;
-  } */
+    grid-column-gap: 6rem;
+  }
 `
 
 export const MenueCol = styled.div`
   position: relative;
   width: 100%;
-  /* max-width: 38rem; */
-  /* position: sticky;
-  top: 0; */
+  ${media.twoColsPlus} {
+    position: sticky;
+    top: 0;
+  }
   > div {
     position: relative;
     > div:first-child {
