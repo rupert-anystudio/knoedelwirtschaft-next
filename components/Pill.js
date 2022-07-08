@@ -6,7 +6,7 @@ const Pill = styled.span`
   text-align: center;
   white-space: pre-wrap;
   border: 1px solid currentColor;
-  padding: 0.2em 0.9em;
+  padding: 0.25em 0.9em 0.15em 0.9em;
   border-radius: 0.8em;
   display: inline-block;
 `

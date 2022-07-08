@@ -37,7 +37,7 @@ const PageRestaurant = () => {
       </Section>
       <Section>
         <TakeoutInfo />
-        {/* <Booking /> */}
+        <Booking />
       </Section>
       <Section>
         <Menue>
