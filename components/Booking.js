@@ -120,10 +120,21 @@ const Disclaimer = styled.p`
   margin: 0 auto;
 `
 
+const resmioIds = {
+  nord: 'knodelwirtschaft-nord',
+  sued: 'knodelwirtschaft',
+}
+
+const woltIds = {
+  nord: 'kndelwirtschaft-nord',
+  sued: 'kndelwirtschaft',
+}
+
 const Booking = () => {
   const { locale } = useRouter()
   const {
-    globals = {}
+    globals = {},
+    restaurantSlug,
   } = useAppContext()
   const {
     orderButtonTop,
@@ -145,20 +156,24 @@ const Booking = () => {
     setFrame(null)
   }, [])
 
-  if (frame) {
+  const resmioId = resmioIds[restaurantSlug]
+
+  if (frame && resmioId) {
     return (
       <Frame>
         <Close onClick={handleCloseClick} as="button">{close}</Close>
-        <Iframe src="https://app.resmio.com/knodelwirtschaft/widget?source=localhost&resourceGroup=&backgroundColor=%23fff&color=&linkBackgroundColor=&commentsDisabled=&newsletterSubscribe=&name=&email=&phone=&comment=&nextAvailability=&fontSize=" />
+        <Iframe src={`https://app.resmio.com/${resmioId}/widget?source=localhost&resourceGroup=&backgroundColor=%23fff&color=&linkBackgroundColor=&commentsDisabled=&newsletterSubscribe=&name=&email=&phone=&comment=&nextAvailability=&fontSize=`} />
         <Disclaimer>{bookingDisclaimer}</Disclaimer>
       </Frame>
     )
   }
 
+  const woltId = woltIds[restaurantSlug]
+
   return (
     <Buttons>
       <DumplingButton
-        href={`https://wolt.com/${locale}/deu/berlin/restaurant/kndelwirtschaft`}
+        href={`https://wolt.com/${locale}/deu/berlin/restaurant/${woltId}`}
         top={orderButtonTop}
         center={orderButtonCenter}
         bottom={orderButtonBottom}
