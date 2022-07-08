@@ -21,6 +21,11 @@ const GlobalStyles = createGlobalStyle`
     --color-nord: #6140F5;
     --color-sued: #00FA00;
   }
+  ${media.oneCol} {
+    :root {
+      --fs-root: 1.6rem;
+    }
+  }
   *, *:before, *:after {
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;

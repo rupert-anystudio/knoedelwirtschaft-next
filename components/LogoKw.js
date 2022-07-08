@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const Wrap = styled.div`
   font-family: 'Grobe Deutschmeister';
-  font-size: clamp(4.6rem, 10vw, 6rem);
+  font-size: clamp(4rem, 11vw, 6rem);
   line-height: 0.98;
   text-align: center;
   white-space: pre-wrap;

@@ -6,6 +6,7 @@ import LogoRestaurant from './LogoRestaurant'
 import LogoKw from './LogoKw'
 import PlaceSelect from './PlaceSelect'
 import Link from 'next/link'
+import LogoWrap from './LogoWrap'
 
 const Wrap = styled.div`
   flex: 1 0 auto;
@@ -20,13 +21,6 @@ const Header = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 100;
-  > div {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
   .sued & {
     background-color: var(--color-sued);
     color: black;
@@ -145,7 +139,7 @@ const LayoutRestaurant = ({ children, footer = null }) => {
   return (
     <Wrap className={restaurantSlug}>
       <Header>
-        <div>
+        <LogoWrap>
           <Lang>
             <LanguageSelect />
           </Lang>
@@ -158,7 +152,7 @@ const LayoutRestaurant = ({ children, footer = null }) => {
           <PlaceSelectDesktop>
             <PlaceSelect />
           </PlaceSelectDesktop>
-        </div>
+        </LogoWrap>
       </Header>
       <PlaceSelectMobile>
         <PlaceSelect />

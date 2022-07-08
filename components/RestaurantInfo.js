@@ -9,7 +9,7 @@ const Wrap = styled.div`
   grid-template-columns: 1fr;
   grid-gap: 2rem;
   color: inherit;
-  ${media.twoCols} {
+  ${media.oneCol} {
     grid-template-columns: 1fr 1fr;
   }
 `
@@ -32,7 +32,7 @@ const Block = styled.div`
 const HoursBlock = styled(Block)``
 
 const ContactBlock = styled(Block)`
-  ${media.twoCols} {
+  ${media.oneCol} {
     text-align: right;
     align-items: flex-end;
   }

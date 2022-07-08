@@ -11,7 +11,7 @@ const Wrap = styled.div`
   strong, p {
     font-weight: normal;
   }
-  ${media.twoCols} {
+  ${media.oneCol} {
     text-align: center;
     margin: 0 auto;
   }

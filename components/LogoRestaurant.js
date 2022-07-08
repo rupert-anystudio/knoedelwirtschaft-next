@@ -8,6 +8,7 @@ const Wrap = styled.div`
   font-family: 'Suisse Intl';
   font-size: 9rem;
   line-height: 1;
+  pointer-events: none;
   .nord & {
     font-family: 'Suisse Intl';
     font-size: clamp(9rem, 26vw, 26rem);
@@ -19,12 +20,12 @@ const Wrap = styled.div`
     }
   }
   .sued & {
-    font-size: clamp(16rem, 46vw, 38rem);
+    font-size: clamp(14rem, 42vw, 38rem);
     line-height: 1;
     letter-spacing: -0.01em;
     font-family: 'Grobe Deutschmeister';
     ${media.twoCols} {
-      font-size: clamp(15rem, 26vw, 38rem);
+      font-size: clamp(15rem, 20vw, 38rem);
     }
   }
 `

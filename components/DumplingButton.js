@@ -2,12 +2,18 @@
 import Link from 'next/link'
 import { forwardRef } from 'react'
 import styled from 'styled-components'
+import media from '../lib/media'
 
 const Wrap = styled.div`
   pointer-events: none;
+  line-height: 0;
+  font-size: 2.8rem;
+  ${media.twoCols} {
+    font-size: 3.2rem;
+  }
   svg {
-    width: 28rem;
-    height: 28rem;
+    width: 10em;
+    height: 10em;
     circle {
       stroke: none;
       pointer-events: auto;
@@ -21,11 +27,11 @@ const Wrap = styled.div`
     }
     text {
       fill: white;
-      font-size: 0.6rem;
+      font-size: 0.2em;
       font-family: 'Suisse Intl', sans-serif;
-      letter-spacing: 0.04rem;
+      letter-spacing: 0.015em;
       &.center {
-        font-size: 3rem;
+        font-size: 1em;
         text-transform: lowercase;
         font-family: 'Grobe Deutschmeister';
       }
@@ -74,7 +80,7 @@ const Dumpling = forwardRef(({
           />
         </defs>
         <circle cx="50" cy="50" r="49" />
-        <text dominantBaseline="middle">
+        <text dominantBaseline="middle" dy="0.2em">
           <textPath xlinkHref="#text-top" startOffset="50%" textAnchor="middle">{top}</textPath> 
           <textPath xlinkHref="#text-bottom" startOffset="50%" textAnchor="middle">{bottom}</textPath> 
         </text>

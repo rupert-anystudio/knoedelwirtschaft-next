@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import { useCallback, useState } from 'react'
 import styled from 'styled-components'
+import media from '../lib/media'
 import { useAppContext } from './AppContext'
 import DumplingButton from './DumplingButton'
 import Pill from './Pill'
@@ -8,8 +9,56 @@ import Pill from './Pill'
 const Buttons = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
+
+  margin-bottom: 4rem;
+
+  > * {
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  ${media.oneCol} {
+    flex-direction: row;
+    > * {
+      &:not(:last-child) {
+        margin-bottom: 0;
+        margin-right: 2rem;
+      }
+    }
+  }
+
+  ${media.twoCols} {
+    flex-direction: column;
+    > * {
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+        margin-right: 0;
+      }
+    }
+  }
+
+  ${media.twoColsPlus} {
+    flex-direction: row;
+    > * {
+      &:not(:last-child) {
+        margin-bottom: 0;
+        margin-right: 2rem;
+      }
+    }
+  }
+
+  /* width: auto;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  grid-gap: 2rem;
+  ${media.oneCol} {
+    grid-template-columns: 1fr 1fr;
+  } */
 `
 
 const Frame = styled.div`
@@ -19,6 +68,7 @@ const Frame = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  margin-bottom: 4rem;
   > * {
     &:not(:last-child) {
       margin-bottom: 3rem;
@@ -39,21 +89,19 @@ const Close = styled.button`
   outline: none;
   margin: 0;
   border: none;
-  text-transform: uppercase;
+  background: none;
+  /* text-transform: uppercase;
   padding: 0.25em 0.9em 0.15em 0.9em;
-  border-radius: 0.8em;
+  border-radius: 0.8em; */
+
   font-family: var(--ff-root);
-  font-size: 1.8rem;
-  line-height: 1;
+  font-size: var(--fs-root);
+  line-height: var(--lh-root);
   cursor: pointer;
-  .nord & {
-    background: white;
-    color: var(--color-nord);
+  &:hover, &:focus {
+    text-decoration: underline;
   }
-  .sued & {
-    background: black;
-    color: var(--color-sued);
-  }
+  color: inherit;
 `
 
 const Iframe = styled.iframe`

@@ -4,6 +4,7 @@ import media from '../lib/media'
 import { useAppContext } from './AppContext'
 import LogoKw from './LogoKw'
 import LogoRestaurant from './LogoRestaurant'
+import LogoWrap from './LogoWrap'
 import Pill from './Pill'
 
 const Restaurants = styled.div`
@@ -21,6 +22,7 @@ const Restaurant = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 3rem 0;
   &.nord {
     background: white;
     color: var(--color-nord);
@@ -28,12 +30,6 @@ const Restaurant = styled.div`
   &.sued {
     background: var(--color-sued);
     color: black;
-  }
-  > a {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
 `
 
@@ -57,11 +53,11 @@ const PageLanding = () => {
               passHref
               key={id}
             >
-              <a>
+              <LogoWrap as='a'>
                 <LogoKw />
                 <LogoRestaurant name={name} />
                 <Pill>{city_area}</Pill>
-              </a>
+              </LogoWrap>
             </Link>
           </Restaurant>
         )

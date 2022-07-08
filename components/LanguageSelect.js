@@ -19,17 +19,16 @@ const Wrap = styled.div`
 const Option = styled.a`
   position: relative;
   text-decoration: none;
-  font-size: inherit;
-  line-height: inherit;
   background: none;
   color: currentColor;
-  padding: .2em .7em .1em .7em;
+  padding: .3em .7em .08em .7em;
   border-radius: 1em;
   outline: none;
   appearance: none;
   border: 1px solid transparent;
-  font-family: inherit;
-  line-height: inherit;
+  font-size: var(--fs-root);
+  font-family: var(--ff-root);
+  line-height: var(--lh-root);
   cursor: pointer;
   &[disabled] {
     cursor: default;

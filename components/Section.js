@@ -5,7 +5,7 @@ const Wrap = styled.section`
   position: relative;
   width: 100%;
   margin: 0 auto;
-  max-width: 80rem;
+  max-width: 90rem;
   padding: 0 2rem;
 `
 
