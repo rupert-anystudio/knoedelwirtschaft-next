@@ -5,13 +5,12 @@ import Pill from './Pill'
 const PlaceSelect = () => {
   const {
     restaurant = {},
-    restaurantSlug,
     slugs,
   } = useAppContext()
   const nextSlug = slugs[0] === 'nord' ? 'sued' : 'nord'
   const hrefRestaurantSwitch = `/${[nextSlug, ...slugs.slice(1)].filter(Boolean).join('/')}`
   const {
-    name,
+    name, 
     city_area,
   } = restaurant
   return (

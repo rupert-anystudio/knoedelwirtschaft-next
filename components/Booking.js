@@ -1,25 +1,24 @@
+import styled from 'styled-components'
 import { useRouter } from 'next/router'
 import { useCallback, useState } from 'react'
-import styled from 'styled-components'
-import { min } from '../lib/bp'
+import { maxWidths, minWidths } from '../lib/bp'
 import { useAppContext } from './AppContext'
 import DumplingButton from './DumplingButton'
 
 const Buttons = styled.div`
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-
   margin-bottom: 4rem;
-
+  flex-direction: column;
   > * {
     &:not(:last-child) {
+      margin-right: 0;
       margin-bottom: 2rem;
     }
   }
 
-  ${min.tabletPortrait} {
+  @media ${minWidths.tabletPortrait} and ${maxWidths.macbook13}, ${minWidths.macbook16} {
     flex-direction: row;
     > * {
       &:not(:last-child) {
@@ -28,36 +27,6 @@ const Buttons = styled.div`
       }
     }
   }
-
-  ${min.macbook13} {
-    flex-direction: column;
-    > * {
-      &:not(:last-child) {
-        margin-bottom: 2rem;
-        margin-right: 0;
-      }
-    }
-  }
-
-  ${min.macbook16} {
-    flex-direction: row;
-    > * {
-      &:not(:last-child) {
-        margin-bottom: 0;
-        margin-right: 2rem;
-      }
-    }
-  }
-
-  /* width: auto;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-items: center;
-  grid-gap: 2rem;
-  ${min.tabletPortrait} {
-    grid-template-columns: 1fr 1fr;
-  } */
 `
 
 const Frame = styled.div`
