@@ -9,6 +9,7 @@ import Pill from './Pill'
 
 const Restaurants = styled.div`
   position: relative;
+  min-height: 100vh;
   flex: 1 0 100vh;
   display: grid;
   grid-template-columns: 1fr;
