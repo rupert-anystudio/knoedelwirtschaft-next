@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import media from '../lib/media'
+import { min } from '../lib/bp'
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -12,8 +12,8 @@ const GlobalStyles = createGlobalStyle`
     --lh-root: 1.45;
     // title
     --ff-title: 'Grobe Deutschmeister';
-    --fs-title: 4.5rem;
-    --lh-title: 4.5rem;
+    --fs-title: 4rem;
+    --lh-title: 1;
     // sizes
     --gutter: 2rem;
     --h-header: 8.2rem;
@@ -21,9 +21,14 @@ const GlobalStyles = createGlobalStyle`
     --color-nord: #6140F5;
     --color-sued: #00FA00;
   }
-  ${media.oneCol} {
+  ${min.tabletPortrait} {
     :root {
       --fs-root: 1.6rem;
+    }
+  }
+  ${min.desktop} {
+    :root {
+      --fs-title: 4.5rem;
     }
   }
   *, *:before, *:after {

@@ -1,10 +1,9 @@
 import { useRouter } from 'next/router'
 import { useCallback, useState } from 'react'
 import styled from 'styled-components'
-import media from '../lib/media'
+import { min } from '../lib/bp'
 import { useAppContext } from './AppContext'
 import DumplingButton from './DumplingButton'
-import Pill from './Pill'
 
 const Buttons = styled.div`
   display: flex;
@@ -20,7 +19,7 @@ const Buttons = styled.div`
     }
   }
 
-  ${media.oneCol} {
+  ${min.tabletPortrait} {
     flex-direction: row;
     > * {
       &:not(:last-child) {
@@ -30,7 +29,7 @@ const Buttons = styled.div`
     }
   }
 
-  ${media.twoCols} {
+  ${min.macbook13} {
     flex-direction: column;
     > * {
       &:not(:last-child) {
@@ -40,7 +39,7 @@ const Buttons = styled.div`
     }
   }
 
-  ${media.twoColsPlus} {
+  ${min.macbook16} {
     flex-direction: row;
     > * {
       &:not(:last-child) {
@@ -56,7 +55,7 @@ const Buttons = styled.div`
   grid-template-columns: 1fr;
   justify-items: center;
   grid-gap: 2rem;
-  ${media.oneCol} {
+  ${min.tabletPortrait} {
     grid-template-columns: 1fr 1fr;
   } */
 `

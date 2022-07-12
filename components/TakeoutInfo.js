@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import media from '../lib/media'
+import { min } from '../lib/bp'
 import { useAppContext } from './AppContext'
 
 const Wrap = styled.div`
@@ -11,7 +11,7 @@ const Wrap = styled.div`
   strong, p {
     font-weight: normal;
   }
-  ${media.oneCol} {
+  ${min.tabletPortrait} {
     text-align: center;
     margin: 0 auto;
   }

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import media from '../lib/media'
+import { min } from '../lib/bp'
 
 const LogoWrap = styled.div`
   position: relative;
@@ -7,7 +7,7 @@ const LogoWrap = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  ${media.twoCols} {
+  ${min.macbook13} {
     margin-bottom: -6rem;
   }
 `

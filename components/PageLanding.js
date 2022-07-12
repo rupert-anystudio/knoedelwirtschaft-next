@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import styled from 'styled-components'
-import media from '../lib/media'
+import { min } from '../lib/bp'
 import { useAppContext } from './AppContext'
 import LogoKw from './LogoKw'
 import LogoRestaurant from './LogoRestaurant'
@@ -12,7 +12,7 @@ const Restaurants = styled.div`
   flex: 1 0 100vh;
   display: grid;
   grid-template-columns: 1fr;
-  ${media.twoCols} {
+  ${min.macbook13} {
     grid-template-columns: 1fr 1fr;
   }
 `

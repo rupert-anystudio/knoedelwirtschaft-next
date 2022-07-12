@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 import styled from 'styled-components'
-import media from '../lib/media'
+import { min } from '../lib/bp'
 
 const Wrap = styled.section`
   position: relative;
@@ -8,7 +8,7 @@ const Wrap = styled.section`
   margin: 0 auto;
   max-width: 100rem;
   padding: 0 2rem;
-  ${media.oneCol} {
+  ${min.tabletPortrait} {
     padding: 0 4rem;
   }
 `

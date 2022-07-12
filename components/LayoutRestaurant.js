@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import media from '../lib/media'
 import { useAppContext } from './AppContext'
 import LanguageSelect from './LanguageSelect'
 import LogoRestaurant from './LogoRestaurant'
@@ -7,6 +6,7 @@ import LogoKw from './LogoKw'
 import PlaceSelect from './PlaceSelect'
 import Link from 'next/link'
 import LogoWrap from './LogoWrap'
+import { min } from '../lib/bp'
 
 const Wrap = styled.div`
   flex: 1 0 auto;
@@ -29,7 +29,7 @@ const Header = styled.div`
     background-color: white;
     color: var(--color-nord);
   }
-  ${media.twoCols} {
+  ${min.macbook13} {
     position: fixed;
     top: 0;
     width: 50vw;
@@ -47,7 +47,7 @@ const Header = styled.div`
 
 const Lang = styled.div`
   padding: 6rem 0;
-  ${media.twoCols} {
+  ${min.macbook13} {
     position: absolute;
     bottom: 100%;
   }
@@ -73,14 +73,14 @@ const PlaceSelectMobile = styled.div`
     border-color: var(--color-nord);
     color: var(--color-nord);
   }
-  ${media.twoCols} {
+  ${min.macbook13} {
     display: none;
   }
 `
 
 const PlaceSelectDesktop = styled.div`
   display: none;
-  ${media.twoCols} {
+  ${min.macbook13} {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -95,7 +95,7 @@ const Main = styled.main`
   .sued & {
     color: black;
   }
-  ${media.twoCols} {
+  ${min.macbook13} {
     .nord & {
       padding-left: 50vw;
     }
@@ -117,7 +117,7 @@ const Footer = styled.footer`
   .sued & {
     color: black;
   }
-  ${media.twoCols} {
+  ${min.macbook13} {
     .nord & {
       padding-left: 50vw;
     }

@@ -1,6 +1,5 @@
 import styled from 'styled-components'
-import media from '../lib/media'
-import { useAppContext } from './AppContext'
+import { min } from '../lib/bp'
 
 const Wrap = styled.div`
   text-align: center;
@@ -15,7 +14,7 @@ const Wrap = styled.div`
     line-height: 1;
     letter-spacing: -0.01em;
     text-transform: uppercase;
-    ${media.twoCols} {
+    ${min.macbook13} {
       font-size: clamp(18rem, 15vw, 26rem);
     }
   }
@@ -24,7 +23,7 @@ const Wrap = styled.div`
     line-height: 1;
     letter-spacing: -0.01em;
     font-family: 'Grobe Deutschmeister';
-    ${media.twoCols} {
+    ${min.macbook13} {
       font-size: clamp(15rem, 20vw, 38rem);
     }
   }

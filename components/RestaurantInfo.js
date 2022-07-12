@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import media from '../lib/media'
+import { min } from '../lib/bp'
 import { useAppContext } from './AppContext'
 
 const Wrap = styled.div`
@@ -9,7 +9,7 @@ const Wrap = styled.div`
   grid-template-columns: 1fr;
   grid-gap: 2rem;
   color: inherit;
-  ${media.oneCol} {
+  ${min.tabletPortrait} {
     grid-template-columns: 1fr 1fr;
   }
 `
@@ -32,7 +32,7 @@ const Block = styled.div`
 const HoursBlock = styled(Block)``
 
 const ContactBlock = styled(Block)`
-  ${media.oneCol} {
+  ${min.tabletPortrait} {
     text-align: right;
     align-items: flex-end;
   }

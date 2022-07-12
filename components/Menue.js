@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import media from '../lib/media'
+import { min } from '../lib/bp'
 
 export const Menue = styled.div`
   position: relative;
@@ -9,7 +9,7 @@ export const Menue = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  ${media.twoColsPlus} {
+  ${min.macbook16} {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 6rem;
@@ -19,7 +19,7 @@ export const Menue = styled.div`
 export const MenueCol = styled.div`
   position: relative;
   width: 100%;
-  ${media.twoColsPlus} {
+  ${min.macbook16} {
     position: sticky;
     top: 0;
   }
@@ -37,7 +37,7 @@ export const MenueCol = styled.div`
       justify-content: space-between;
       border-bottom: 1px solid currentColor;
       background: white;
-      ${media.twoCols} {
+      ${min.macbook13} {
         top: 0px;
       }
     }

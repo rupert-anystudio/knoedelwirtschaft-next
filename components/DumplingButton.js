@@ -2,13 +2,13 @@
 import Link from 'next/link'
 import { forwardRef } from 'react'
 import styled from 'styled-components'
-import media from '../lib/media'
+import { min } from '../lib/bp'
 
 const Wrap = styled.div`
   pointer-events: none;
   line-height: 0;
   font-size: 2.8rem;
-  ${media.oneCol} {
+  ${min.tabletPortrait} {
     font-size: 3.2rem;
   }
   svg {
