@@ -16,15 +16,13 @@ const PageImprint = () => {
   } = globals
   const {
     owner,
-    name,
-    city_area,
     phone,
     mail,
     street,
     street_nr,
     postal,
     city,
-    st_id_nr,
+    ust_id,
     str_nr,
   } = restaurant
   return (
@@ -39,7 +37,7 @@ const PageImprint = () => {
           {postal} {city}<br/>
           Telefon: (030) {phone}<br/>
           E-Mail: {mail}<br/>
-          St.-Id.-Nr.: {st_id_nr}<br/>
+          USt-ID: {ust_id}<br/>
           Str. Nr.: {str_nr}</p>
           <p>Inhaltlich Verantwortlicher gemäß § 55 Abs. 2 RStV: {owner}</p>
           <p>Ich, {owner}, bin nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
