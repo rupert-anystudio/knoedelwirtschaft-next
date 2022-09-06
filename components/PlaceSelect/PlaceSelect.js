@@ -12,26 +12,41 @@ const PillList = styled.ul`
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+  border: 1px solid currentColor;
+  padding: 0;
+  font-size: 2.8rem;
+  line-height: 1;
   display: block;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  border-radius: 0.8em;
   background: none;
-  /* li {
+  overflow: hidden;
+  li {
+    padding: 0.25em 0.9em 0.15em 0.9em;
     white-space: pre;
+    text-align: center;
+    cursor: pointer;
+    .sued & {
+      background-color: var(--color-sued);
+    }
+    .nord & {
+      background-color: white;
+    }
     &:not(:first-child) {
       border-top: 1px solid currentColor;
     }
-  } */
-`
-
-const PillEntry = styled(Pill).attrs({ as: 'li' })`
+  }
 `
 
 export const PlaceSelectNew = ({
   isOpen,
   selectedItem,
   getToggleButtonProps,
-  getLabelProps,
+  // getLabelProps,
+  // hightlightedIndex,
   getMenuProps,
-  hightlightedIndex,
   getItemProps,
   items,
 }) => {
@@ -53,13 +68,13 @@ export const PlaceSelectNew = ({
       {isOpen && (
         <PillList {...getMenuProps()}>
           {items.map((item, index) => (
-            <Pill
+            <li
               key={`${item.value}${index}`}
               {...getItemProps({item, index})}
               as='li'
             >
               {item.title}
-            </Pill>
+            </li>
           ))}
         </PillList>
       )}
