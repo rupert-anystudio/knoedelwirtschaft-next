@@ -1,3 +1,4 @@
+import { forwardRef } from 'react'
 import styled from 'styled-components'
 
 const Wrap = styled.span`
@@ -5,7 +6,12 @@ const Wrap = styled.span`
   line-height: 1;
   text-align: center;
   white-space: pre-wrap;
+  font-weight: inherit;
+  font-family: inherit;
+  color: inherit;
   border: 1px solid currentColor;
+  background-color: inherit;
+  outline: none;
   padding: 0.25em 0.9em 0.15em 0.9em;
   border-radius: 0.8em;
   display: inline-block;
@@ -13,6 +19,7 @@ const Wrap = styled.span`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  cursor: ${props => props.onClick ? 'pointer' : 'auto'};
   > * {
     &:not(:last-child) {
       margin-right: .4em;
@@ -24,9 +31,10 @@ const Pill = ({
   children,
   elemAfter = null,
   elemBefore = null,
-}) => {
+  ...rest
+}, ref) => {
   return (
-    <Wrap>
+    <Wrap {...rest} ref={ref}>
       {elemBefore}
       <span>
         {children}
@@ -36,4 +44,4 @@ const Pill = ({
   )
 }
 
-export default Pill
+export default forwardRef(Pill)

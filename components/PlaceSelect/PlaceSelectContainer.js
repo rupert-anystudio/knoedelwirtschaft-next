@@ -1,21 +1,66 @@
 import { useAppContext } from '../AppContext'
-import { PlaceSelect } from './PlaceSelect'
+import { useSelect } from 'downshift'
+import { PlaceSelectNew } from './PlaceSelect'
+import { useRouter } from 'next/router'
+import { useCallback, useMemo } from 'react'
 
 export const PlaceSelectContainer = () => {
   const {
-    restaurant = {},
-    slugs,
+    slugs = [],
     restaurants = [],
   } = useAppContext()
-  // console.log('Restaurants', restaurants)
+
   const currentSlug = slugs[0]
-  const nextSlug = currentSlug === 'nord' ? 'sued' : 'nord'
-  const href = `/${[nextSlug, ...slugs.slice(1)].filter(Boolean).join('/')}`
-  const { city_area } = restaurant
+
+  const { push } = useRouter()
+
+  const items = useMemo(
+    () => restaurants.map(r => ({
+      value: r.slug,
+      title: r.city_area,
+    })),
+    [restaurants]
+  )
+
+  const initialSelectedItem = items.find(i => i.value === currentSlug)
+
+  const itemToString = useCallback(i => i?.title || i?.value || '', [])
+
+  const onSelectedItemChange = useCallback(
+    ({ selectedItem }) => {
+      if (selectedItem?.value === currentSlug) return
+      const href = `/${[selectedItem?.value, ...slugs.slice(1)].filter(Boolean).join('/')}`
+      push(href)
+    },
+    [push, currentSlug]
+  )
+
+  const {
+    isOpen,
+    selectedItem,
+    getToggleButtonProps,
+    getLabelProps,
+    getMenuProps,
+    hightlightedIndex,
+    getItemProps,
+  } = useSelect({
+    items,
+    itemToString,
+    initialSelectedItem,
+    id: 'placeSelect',
+    onSelectedItemChange,
+  })
+
   return (
-    <PlaceSelect
-      label={city_area}
-      href={href}
+    <PlaceSelectNew
+      isOpen={isOpen}
+      selectedItem={selectedItem}
+      getToggleButtonProps={getToggleButtonProps}
+      getLabelProps={getLabelProps}
+      getMenuProps={getMenuProps}
+      hightlightedIndex={hightlightedIndex}
+      getItemProps={getItemProps}
+      items={items}
     />
   )
 }

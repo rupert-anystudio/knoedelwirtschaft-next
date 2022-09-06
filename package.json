@@ -10,6 +10,7 @@
     "savesheets": "node ./scripts/savesheets.js"
   },
   "dependencies": {
+    "downshift": "^6.1.9",
     "googleapis": "^100.0.0",
     "next": "12.1.5",
     "react": "18.0.0",
