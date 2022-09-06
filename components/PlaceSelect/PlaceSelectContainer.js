@@ -5,10 +5,11 @@ export const PlaceSelectContainer = () => {
   const {
     restaurant = {},
     slugs,
-    // restaurants,
+    restaurants = [],
   } = useAppContext()
   // console.log('Restaurants', restaurants)
-  const nextSlug = slugs[0] === 'nord' ? 'sued' : 'nord'
+  const currentSlug = slugs[0]
+  const nextSlug = currentSlug === 'nord' ? 'sued' : 'nord'
   const href = `/${[nextSlug, ...slugs.slice(1)].filter(Boolean).join('/')}`
   const { city_area } = restaurant
   return (
