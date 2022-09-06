@@ -15,10 +15,19 @@ export const PlaceSelectContainer = () => {
   const { push } = useRouter()
 
   const items = useMemo(
-    () => restaurants.map(r => ({
-      value: r.slug,
-      title: r.city_area,
-    })),
+    () => restaurants
+      .reduce((acc, r) => {
+        const item = {
+          value: r.slug,
+          title: r.city_area,
+        }
+        if (r.slug === currentSlug) {
+          acc.unshift(item)
+          return acc
+        }
+        acc.push(item)
+        return acc
+      }, []),
     [restaurants]
   )
 

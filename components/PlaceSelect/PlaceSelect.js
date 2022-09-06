@@ -8,6 +8,7 @@ const Wrap = styled.div`
 `
 
 const PillList = styled.ul`
+  user-select: none;
   position: absolute;
   top: 0;
   left: 50%;
@@ -34,6 +35,16 @@ const PillList = styled.ul`
     .nord & {
       background-color: white;
     }
+    &.highlighted {
+      .sued & {
+        background-color: black;
+        color: var(--color-sued);
+      }
+      .nord & {
+        background-color: var(--color-nord);
+        color: white;
+      }
+    }
     &:not(:first-child) {
       border-top: 1px solid currentColor;
     }
@@ -45,7 +56,7 @@ export const PlaceSelectNew = ({
   selectedItem,
   getToggleButtonProps,
   // getLabelProps,
-  // hightlightedIndex,
+  hightlightedIndex,
   getMenuProps,
   getItemProps,
   items,
@@ -72,6 +83,7 @@ export const PlaceSelectNew = ({
               key={`${item.value}${index}`}
               {...getItemProps({item, index})}
               as='li'
+              className={hightlightedIndex === index ? 'highlighted' : null}
             >
               {item.title}
             </li>
