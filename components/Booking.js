@@ -88,9 +88,9 @@ const Disclaimer = styled.p`
   margin: 0 auto;
 `
 
-const resmioIds = {
-  nord: 'knodelwirtschaft-nord',
-  sued: 'knodelwirtschaft',
+const zenchefIds = {
+  nord: 384110,
+  sued: 384111,
 }
 
 const woltIds = {
@@ -124,13 +124,13 @@ const Booking = () => {
     setFrame(null)
   }, [])
 
-  const resmioId = resmioIds[restaurantSlug]
+  const zenchefId = zenchefIds[restaurantSlug]
 
-  if (frame && resmioId) {
+  if (frame && zenchefId) {
     return (
       <Frame>
         <Close onClick={handleCloseClick} as="button">{close}</Close>
-        <Iframe src={`https://app.resmio.com/${resmioId}/widget?source=localhost&resourceGroup=&backgroundColor=%23fff&color=&linkBackgroundColor=&commentsDisabled=&newsletterSubscribe=&name=&email=&phone=&comment=&nextAvailability=&fontSize=`} />
+        <Iframe src={`https://bookings.zenchef.com/results?rid=${zenchefId}&fullscreen=1&lang=${locale}`} />
         <Disclaimer>{bookingDisclaimer}</Disclaimer>
       </Frame>
     )
