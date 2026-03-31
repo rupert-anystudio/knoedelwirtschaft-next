@@ -9,10 +9,12 @@ export default function Landing() {
 }
 
 export async function getStaticProps({ preview = false }) {
+
   const data = await getSheetData([
     'restaurants',
     'globals',
   ])
+
   return {
     revalidate,
     props: {
