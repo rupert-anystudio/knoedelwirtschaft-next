@@ -6,6 +6,7 @@ import LogoKw from './LogoKw'
 import LogoRestaurant from './LogoRestaurant'
 import LogoWrap from './LogoWrap'
 import Pill from './Pill'
+import ZenchefMultivenueScript from './ZenchefMultivenueScript'
 
 const Restaurants = styled.div`
   position: relative;
@@ -37,33 +38,36 @@ const Restaurant = styled.div`
 const PageLanding = () => {
   const { restaurants = [] } = useAppContext()
   return (
-    <Restaurants>
-      {restaurants.map(({
-        id,
-        name,
-        city_area,
-        slug,
-      }) => {
-        return (
-          <Restaurant
-            key={id}
-            className={slug}
-          >
-            <Link
-              href={`/${slug}`}
-              passHref
+    <>
+      <Restaurants>
+        {restaurants.map(({
+          id,
+          name,
+          city_area,
+          slug,
+        }) => {
+          return (
+            <Restaurant
               key={id}
+              className={slug}
             >
-              <LogoWrap as='a'>
-                <LogoKw />
-                <LogoRestaurant name={name} />
-                <Pill>{city_area}</Pill>
-              </LogoWrap>
-            </Link>
-          </Restaurant>
-        )
-      })}
-    </Restaurants>
+              <Link
+                href={`/${slug}`}
+                passHref
+                key={id}
+              >
+                <LogoWrap as='a'>
+                  <LogoKw />
+                  <LogoRestaurant name={name} />
+                  <Pill>{city_area}</Pill>
+                </LogoWrap>
+              </Link>
+            </Restaurant>
+          )
+        })}
+      </Restaurants>
+      <ZenchefMultivenueScript />
+    </>
   )
 }
 
